@@ -1,8 +1,7 @@
 import HomePage from "~/pages/HomePage";
+import Login from "~/pages/LoginPage";
 import NotFoundPage from "~/pages/NotFoundPage";
-import OrderPage from "~/pages/OrderPage";
-import ProductDetailPage from "~/pages/ProductDetailPage";
-import ProductsPage from "~/pages/ProductsPage";
+import Register from "~/pages/RegisterPage";
 
 export const routes = [
     {
@@ -11,20 +10,14 @@ export const routes = [
         isHeader: true
     },
     {
-        path: "/products",
-        page: ProductsPage,
-        isHeader: true
-
+        path: "/register",
+        page: Register,
+        isHeader: false
     },
     {
-        path: "/product-detail",
-        page: ProductDetailPage,
-        isHeader: true
-    },
-    {
-        path: "/order",
-        page: OrderPage,
-        isHeader: true
+        path: "/login",
+        page: Login,
+        isHeader: false
     },
     {
         path: "*",
