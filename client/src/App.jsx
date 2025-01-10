@@ -1,16 +1,18 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { routes } from "./routes";
-import DefaultComponent from "./components/DefaultComponent";
+import Default from "./components/Default";
 import { Fragment } from "react";
+import { useSelector } from "react-redux";
 
 function App() {
+  const theme = useSelector((state) => state.theme.theme);
   return (
-    <div>
+    <div data-theme={theme}>
       <Router>
         <Routes>
           {routes.map((route) => {
             const Page = route.page;
-            const Layout = route.isHeader ? DefaultComponent : Fragment;
+            const Layout = route.isHeader ? Default : Fragment;
             return (
               <Route
                 key={route.page}
