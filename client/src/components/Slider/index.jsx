@@ -23,7 +23,7 @@ const Slider = () => (
           </div>
           <div className="hidden md:block">
             <img
-              className="w-full h-full object-cover bg-no-repeat"
+              className="w-full rounded-md h-full object-cover bg-no-repeat"
               src={item?.pc}
               alt={item?.label}
             />

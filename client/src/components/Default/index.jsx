@@ -3,16 +3,14 @@ import TopBar from "../TopBar";
 import Header from "../Header";
 import Footer from "../Footer";
 import SubHeader from "../SubHeader";
-import Slider from "../Slider";
 
-const Default = () => {
+const Default = ({ children }) => {
   return (
-    <div>
+    <div className="flex flex-col min-h-screen">
       <TopBar />
       <Header />
       <SubHeader />
-      <Slider />
-      <Footer />
+      <div className="flex-grow bg-bg">{children}</div> <Footer />
     </div>
   );
 };

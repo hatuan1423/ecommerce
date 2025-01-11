@@ -7,20 +7,25 @@ export const routes = [
     {
         path: "/",
         page: HomePage,
+        title: "Siêu thị nội thất & trang trí Baya",
         isHeader: true
     },
     {
-        path: "/register",
+        path: "/account/register",
         page: Register,
-        isHeader: false
+        title: "Tạo tài khoản - Baya",
+        isHeader: true
     },
     {
-        path: "/login",
+        path: "/account/login",
+        title: "Tài khoản - Baya",
         page: Login,
-        isHeader: false
+        isHeader: true
     },
     {
         path: "*",
-        page: NotFoundPage
+        title: "Không tìm thấy trang - Baya",
+        page: NotFoundPage,
+        isHeader: true
     },
 ]
