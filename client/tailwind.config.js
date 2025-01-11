@@ -17,7 +17,14 @@ export default {
 				},
 			},
 			padding: {
-				76: "76px"
+				76: "76px",
+				70: "70px"
+			},
+			borderColor: {
+				'border': "rgb(var(--color-border) / <alpha-value>)",
+			},
+			borderWidth: {
+				'1': "0.8px"
 			}
 		}
 	},

@@ -24,7 +24,7 @@ const Footer = () => {
               <TextInput
                 iconLeft={<CiMail />}
                 placeholder="Nhập email của bạn"
-                className="rounded-full w-full bg-white"
+                className="rounded-full border-border w-full bg-white"
                 iconLeftStyles="left-4"
               />
               <Button
@@ -50,7 +50,7 @@ const Footer = () => {
       {/* 2 */}
       <div className="w-full md:px-76 px-[6px] pt-8 h-full grid grid-cols-1 md:grid-cols-4 md:gap-8">
         {FOOTERS.map((section, index) => (
-          <div key={index} className="w-full flex gap-y-5 flex-col">
+          <div key={index} className="w-full flex gap-y-5 md:pb-5 flex-col">
             <div
               onClick={() => toggleCollapse(index)}
               className="flex items-center justify-between cursor-pointer"
@@ -80,7 +80,7 @@ const Footer = () => {
         ))}
       </div>
       {/* 3 */}
-      <div className="w-full md:py-4 py-2 text-xs md:text-sm bg-bg flex items-center justify-center">
+      <div className="w-full border-t md:py-4 py-2 text-xs md:text-sm bg-bg flex items-center justify-center">
         <span>Copyright © 2025. Powered by dhtun</span>
       </div>
     </div>

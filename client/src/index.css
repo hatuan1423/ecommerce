@@ -23,9 +23,11 @@
     --color-ascent-1: 0 0 0;
     --color-ascent-2: 89 91 100;
     --color-red: 196 18 63;
+    --color-border: 213 213 213;
   }
   [data-theme="dark"] {
     --color-primary: 0 0 0;
+    --color-border: 45 45 45;
     --color-ascent-1: 255 255 255;
   }
 }
