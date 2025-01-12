@@ -6,7 +6,7 @@ import { FaAngleDown } from "react-icons/fa6";
 
 const SubHeader = () => {
   return (
-    <Wrapper className="bg-bg border-b">
+    <Wrapper className="bg-bg ">
       <ul className="w-full hidden md:flex py-4 items-center gap-x-2 justify-between text-red uppercase">
         {items.map((item) => (
           <Dropdown

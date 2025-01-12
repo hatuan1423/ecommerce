@@ -1,37 +1,42 @@
-import { CgDanger } from "react-icons/cg";
-import Button from "../Button";
+import { Popover } from "antd";
+import { PiWarningCircleLight } from "react-icons/pi";
+import PreviewCoupon from "../PreviewCoupon";
 
 const CouponItem = () => {
   return (
-    <div className="w-full relative shadow-sm flex items-center gap-x-5 px-2 bg-[#FDF0D1] rounded-xl border-border border-1">
-      <span className="p-3 bg-[#F1C150] rounded-xl">
+    <div className="w-[333px] h-[99px] relative shadow-sm flex items-center px-2 bg-[#FDF0D1] rounded-xl border-border border-1">
+      <div className="bg-[#F1C150] p-[10px] rounded-xl">
         <img
           src="https://theme.hstatic.net/200000796751/1001266995/14/home_coupon_1_img.png?v=82"
           alt=""
+          className="object-cover bg-no-repeat "
         />
-      </span>
-
-      <div className="w-1 h-32 -translate-x-[5px] border-l-2 border-dashed border-border"></div>
-      <div className="w-full  flex gap-y-2 flex-col items-center">
-        <div className="w-full flex flex-col">
-          <span className="text-sm font-bold">Giam 300.000</span>
-          <span className="text-sm">Đơn hàng từ 3 triệu</span>
+      </div>
+      <div className="w-1 h-full translate-x-1 border-l-[1px] border-dashed border-border"></div>
+      <div className="w-full h-full  p-[10px] flex flex-col justify-between">
+        <div className="w-full flex items-center">
+          <div className="w-full flex flex-col ">
+            <span className="text-sm font-semibold">Giảm 200.000đ</span>
+            <span className="text-xs">Đơn hàng từ 3 triệu</span>
+          </div>
+          <Popover content={<PreviewCoupon />} placement="bottom">
+            <PiWarningCircleLight size={24} />
+          </Popover>
         </div>
-        <div className="w-full flex flex-col">
-          <span className="text-sm">
-            Mã: <span className="font-bold">ABCD</span>
-          </span>
-          <span className="text-sm">Đơn hàng từ 3 triệu</span>
+        <div className="w-full flex items-center">
+          <div className="w-full flex flex-col">
+            <span className="text-xs x">
+              Mã: <span className="text-xs font-semibold">VOUCHERT1-200K</span>
+            </span>
+            <span className="text-xs">HSD: 31/01/2025</span>
+          </div>
+          <button className="w-[150px] uppercase bg-red text-[10px] leading-tight rounded-full text-white py-1">
+            Sao chép mã
+          </button>
         </div>
       </div>
-      {/* <CgDanger size={20} />
-        <Button
-          title="Sao chép mã"
-          className="text-white uppercase w-28 text-xs rounded-full py-1 flex items-center font-light justify-center bg-red"
-        /> */}
-
-      <div className="w-6 h-6 bg-bg rounded-full absolute top-0 translate-x-24 transform -translate-y-1/2"></div>
-      <div className="w-6 h-6 bg-bg rounded-full absolute -bottom-3 translate-x-24 transform "></div>
+      <div className="w-4 h-4 bg-bg rounded-full absolute top-0 translate-x-[66px] transform -translate-y-1/2"></div>
+      <div className="w-4 h-4 bg-bg rounded-full absolute -bottom-3 translate-x-[66px] transform "></div>
     </div>
   );
 };

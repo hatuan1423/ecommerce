@@ -185,7 +185,7 @@ const Header = () => {
           </Popover>
 
           <Popover content={<Cart />} placement="bottomLeft" trigger="click">
-            <div className=" flex cursor-pointer text-white">
+            <div className="flex cursor-pointer text-white">
               <Badge count={2}>
                 <span>
                   <svg

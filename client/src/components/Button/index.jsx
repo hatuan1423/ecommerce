@@ -2,6 +2,7 @@ const Button = ({
   title,
   className,
   iconRight,
+  iconRightStyles,
   type,
   onClick,
   disable,
@@ -18,7 +19,9 @@ const Button = ({
       }`}
     >
       {title}
-      {iconRight && <div className="ml-2">{iconRight}</div>}
+      {iconRight && (
+        <div className={`ml-2 ${iconRightStyles}`}>{iconRight}</div>
+      )}
     </button>
   );
 };

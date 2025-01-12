@@ -1,6 +1,9 @@
+import Cart from "~/pages/CartPage";
+import Collection from "~/pages/CollectionPage";
 import HomePage from "~/pages/HomePage";
 import Login from "~/pages/LoginPage";
 import NotFoundPage from "~/pages/NotFoundPage";
+import Product from "~/pages/ProductPage";
 import Register from "~/pages/RegisterPage";
 
 export const routes = [
@@ -14,6 +17,24 @@ export const routes = [
         path: "/account/register",
         page: Register,
         title: "Tạo tài khoản - Baya",
+        isHeader: true
+    },
+    {
+        path: "/collection",
+        page: Collection,
+        title: "Tất cả sản phẩm - Baya",
+        isHeader: true
+    },
+    {
+        path: "/product",
+        page: Product,
+        title: "Sản phẩm - Baya",
+        isHeader: true
+    },
+    {
+        path: "/cart",
+        page: Cart,
+        title: "Giỏ hàng của bạn - Baya",
         isHeader: true
     },
     {

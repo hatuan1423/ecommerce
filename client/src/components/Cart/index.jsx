@@ -1,7 +1,10 @@
 import React from "react";
 import Button from "../Button";
+import { useNavigate } from "react-router-dom";
 
 const Cart = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="w-80 py-1 px-2 flex gap-y-3 items-center justify-center flex-col">
       {/* 1 */}
@@ -33,6 +36,7 @@ const Cart = () => {
       </div>
       {/* 4 */}
       <Button
+        onClick={() => navigate("/cart")}
         title="Xem giỏ hàng"
         className="w-full flex items-center justify-center text-white bg-red uppercase rounded-full py-2 text-xs"
       />

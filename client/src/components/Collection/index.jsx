@@ -36,16 +36,17 @@ const Collection = () => {
             </span>
             <span className="text-2xl font-bold">Đồ bếp nhập khẩu cao cấp</span>
           </div>
-          <div className="w-full flex items-center justify-end">
+          <div className="w-full flex gap-x-1 items-center justify-end">
             <IoIosArrowDropleftCircle
               onClick={prev}
-              size={30}
-              className="text-black cursor-pointer"
+              size={35}
+              className="text-white  cursor-pointer hover:text-red"
             />
+
             <IoIosArrowDroprightCircle
               onClick={next}
-              size={30}
-              className="text-black cursor-pointer"
+              size={35}
+              className="text-white cursor-pointer hover:text-red"
             />
           </div>
         </div>

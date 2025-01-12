@@ -71,9 +71,9 @@ const Register = () => {
           <div className="w-full flex flex-col">
             <span className="text-sm">
               Bạn đã có tài khoản?{" "}
-              <a href="" className="text-blue-600">
+              <Link to={"/account/login"} className="text-blue-600">
                 Đăng nhập ngay
-              </a>
+              </Link>
             </span>
           </div>
         </div>
