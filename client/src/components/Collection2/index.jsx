@@ -29,7 +29,7 @@ const Collection2 = () => {
       <div className="w-full py-4 px-2 rounded-lg flex flex-col items-center">
         {/* Header */}
         <div className="w-full flex mb-4 items-center justify-between">
-          <div className="w-full flex items-center gap-x-2">
+          <div className="w-full">
             <span className="text-2xl text-red font-bold">
               Back To School - Up To 60%
             </span>
