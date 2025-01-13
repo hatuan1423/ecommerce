@@ -34,7 +34,9 @@ const Collection = () => {
               <span className="absolute inline-flex h-full w-full rounded-full bg-red"></span>
               <span className="absolute inline-flex h-full w-full rounded-full bg-red opacity-75 animate-ping"></span>
             </span>
-            <span className="text-2xl font-bold">Đồ bếp nhập khẩu cao cấp</span>
+            <div className="w-full md:text-2xl font-bold">
+              Đồ bếp nhập khẩu cao cấp
+            </div>
           </div>
           <div className="w-full flex gap-x-1 items-center justify-end">
             <IoIosArrowDropleftCircle

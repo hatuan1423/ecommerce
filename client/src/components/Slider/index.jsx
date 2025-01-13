@@ -11,6 +11,7 @@ const Slider = () => (
       arrows
       autoplaySpeed={5000}
       effect="fade"
+      dots={false}
     >
       {SLIDER_IMGS.map((item) => (
         <div key={item?.label}>

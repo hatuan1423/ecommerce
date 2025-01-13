@@ -2,7 +2,7 @@ import { Popover } from "antd";
 import { PiWarningCircleLight } from "react-icons/pi";
 import PreviewCoupon from "../PreviewCoupon";
 
-const CouponItem = () => {
+const CouponItem = ({ home }) => {
   return (
     <div className="w-[333px] h-[99px] relative shadow-sm flex items-center px-2 bg-[#FDF0D1] rounded-xl border-border border-1">
       <div className="bg-[#F1C150] p-[10px] rounded-xl">
@@ -20,7 +20,7 @@ const CouponItem = () => {
             <span className="text-xs">Đơn hàng từ 3 triệu</span>
           </div>
           <Popover content={<PreviewCoupon />} placement="bottom">
-            <PiWarningCircleLight size={24} />
+            <PiWarningCircleLight size={24} className="cursor-pointer" />
           </Popover>
         </div>
         <div className="w-full flex items-center">
@@ -35,8 +35,16 @@ const CouponItem = () => {
           </button>
         </div>
       </div>
-      <div className="w-4 h-4 bg-bg rounded-full absolute top-0 translate-x-[66px] transform -translate-y-1/2"></div>
-      <div className="w-4 h-4 bg-bg rounded-full absolute -bottom-3 translate-x-[66px] transform "></div>
+      <div
+        className={`w-4 h-4 ${
+          home ? "bg-bg" : " bg-white"
+        } rounded-full absolute top-0 translate-x-[66px] transform -translate-y-1/2`}
+      ></div>
+      <div
+        className={`w-4 h-4 ${
+          home && "bg-bg"
+        } rounded-full absolute -bottom-3 translate-x-[66px] transform`}
+      ></div>
     </div>
   );
 };

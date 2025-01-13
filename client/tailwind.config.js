@@ -26,12 +26,9 @@ export default {
 			borderWidth: {
 				'1': "0.8px"
 			},
-			// flex: {
-			// 	"3": 3,
-			// 	"4": 4,
-			// 	"5": 5,
-			// 	"6": 6
-			// }
+			fontSize: {
+				'14': "14px"
+			}
 		}
 	},
 	plugins: [],
