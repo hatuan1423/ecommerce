@@ -65,32 +65,26 @@ const Collection = () => {
           ]}
         />
       </div>
-      <div className="w-full flex gap-x-10">
-        <div className="w-1/3 flex gap-y-3 flex-col ">
-          <div className="">
-            <StyledCollapse
-              defaultActiveKey={["1"]}
-              onChange={onChange}
-              expandIconPosition={"end"}
-              items={categorys}
-            />
-          </div>
-          <div className="">
-            <StyledCollapse
-              defaultActiveKey={["1"]}
-              onChange={onChange}
-              expandIconPosition={"end"}
-              items={suppliers}
-            />
-          </div>
-          <div className="">
-            <StyledCollapse
-              defaultActiveKey={["1"]}
-              onChange={onChange}
-              expandIconPosition={"end"}
-              items={prices}
-            />
-          </div>
+      <div className="w-full flex gap-x-10 ">
+        <div className="w-1/3 md:flex gap-y-3 flex-col hidden">
+          <StyledCollapse
+            defaultActiveKey={["1"]}
+            onChange={onChange}
+            expandIconPosition={"end"}
+            items={categorys}
+          />
+          <StyledCollapse
+            defaultActiveKey={["1"]}
+            onChange={onChange}
+            expandIconPosition={"end"}
+            items={suppliers}
+          />
+          <StyledCollapse
+            defaultActiveKey={["1"]}
+            onChange={onChange}
+            expandIconPosition={"end"}
+            items={prices}
+          />
         </div>
         <div className="w-full flex flex-col items-center">
           {/* 1 */}
@@ -101,7 +95,7 @@ const Collection = () => {
           />
           {/* 2 */}
           <div className="w-full flex py-4 items-center justify-between">
-            <div className="w-full flex items-center gap-x-10">
+            <div className="w-full flex flex-col md:flex-row md:items-center gap-x-10">
               <span className="text-red text-2xl font-bold">
                 Tất cả sản phẩm
               </span>
@@ -127,7 +121,7 @@ const Collection = () => {
           </div>
           {/* 3 */}
           <div className="w-full flex gap-y-5 items-center justify-center flex-col">
-            <div className="w-full grid gap-3 grid-cols-5">
+            <div className="w-full grid grid-cols-2 gap-2 md:gap-3 md:grid-cols-5">
               <CollectionItem />
               <CollectionItem />
               <CollectionItem />
