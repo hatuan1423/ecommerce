@@ -10,9 +10,24 @@ export default {
 				primary: "rgb(var(--color-primary) / <alpha-value>)",
 				secondary: "rgb(var(--color-secondary) / <alpha-value>)",
 				red: "rgb(var(--color-red) / <alpha-value>)",
+				bg: "rgb(var(--color-bg) / <alpha-value>)",
 				ascent: {
-					1: "rgb(var(--color-ascent1) / <alpha-value>)",
+					1: "rgb(var(--color-ascent-1) / <alpha-value>)",
+					2: "rgb(var(--color-ascent-2) / <alpha-value>)"
 				},
+			},
+			padding: {
+				76: "76px",
+				70: "70px"
+			},
+			borderColor: {
+				'border': "rgb(var(--color-border) / <alpha-value>)",
+			},
+			borderWidth: {
+				'1': "0.8px"
+			},
+			fontSize: {
+				'14': "14px"
 			}
 		}
 	},

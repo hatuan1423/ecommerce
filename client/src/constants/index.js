@@ -104,3 +104,45 @@ export const FOOTERS = [
         ],
     },
 ];
+
+export const CATEGORIZES = [
+    {
+        label: "Sofa",
+        image: "https://theme.hstatic.net/200000796751/1001266995/14/categorize_1_img.jpg?v=82"
+    },
+    {
+        label: "Sofa",
+        image: "https://theme.hstatic.net/200000796751/1001266995/14/categorize_1_img.jpg?v=82"
+    },
+    {
+        label: "Sofa",
+        image: "https://theme.hstatic.net/200000796751/1001266995/14/categorize_1_img.jpg?v=82"
+    },
+    {
+        label: "Sofa",
+        image: "https://theme.hstatic.net/200000796751/1001266995/14/categorize_1_img.jpg?v=82"
+    },
+    {
+        label: "Sofa",
+        image: "https://theme.hstatic.net/200000796751/1001266995/14/categorize_1_img.jpg?v=82"
+    },
+    {
+        label: "Sofa",
+        image: "https://theme.hstatic.net/200000796751/1001266995/14/categorize_1_img.jpg?v=82"
+    },
+    {
+        label: "Sofa",
+        image: "https://theme.hstatic.net/200000796751/1001266995/14/categorize_1_img.jpg?v=82"
+    },
+    {
+        label: "Sofa",
+        image: "https://theme.hstatic.net/200000796751/1001266995/14/categorize_1_img.jpg?v=82"
+    },
+    {
+        label: "Sofa",
+        image: "https://theme.hstatic.net/200000796751/1001266995/14/categorize_1_img.jpg?v=82"
+    },
+
+]
+
+

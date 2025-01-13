@@ -11,6 +11,7 @@ const Slider = () => (
       arrows
       autoplaySpeed={5000}
       effect="fade"
+      dots={false}
     >
       {SLIDER_IMGS.map((item) => (
         <div key={item?.label}>
@@ -23,7 +24,7 @@ const Slider = () => (
           </div>
           <div className="hidden md:block">
             <img
-              className="w-full h-full object-cover bg-no-repeat"
+              className="w-full rounded-md h-full object-cover bg-no-repeat"
               src={item?.pc}
               alt={item?.label}
             />
