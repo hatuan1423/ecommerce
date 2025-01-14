@@ -5,6 +5,7 @@ import * as ProvinceService from "~/services/ProvinceService";
 import { convertData } from "~/utils";
 import Button from "~/components/Button";
 import CheckoutItem from "~/components/CheckoutItem";
+import { Link } from "react-router-dom";
 
 const Checkout = () => {
   const [province, setProvince] = useState([]);
@@ -64,15 +65,15 @@ const Checkout = () => {
   };
 
   return (
-    <div className="w-full grid grid-cols-12 grid-rows-1">
-      <div className="col-span-5 col-start-3 row-start-1 w-full pt-14 pr-16 flex flex-col">
+    <div className="w-full flex flex-col md:grid px-3 md:px-0  md:grid-cols-12 md:grid-rows-1">
+      <div className="col-span-5 col-start-3 row-start-1  w-full pt-14 md:pr-16 flex flex-col">
         <div className="w-full flex-col pb-4">
           <span className="text-3xl font-semibold">Baya</span>
           <div className="w-full mt-4">
             <Breadcrumb
               items={[
                 {
-                  title: "Giỏ hàng",
+                  title: <Link to="/cart">Giỏ hàng</Link>,
                 },
                 {
                   title: "Phương thức thanh toán",
@@ -140,7 +141,7 @@ const Checkout = () => {
         </div>
         <div></div>
       </div>
-      <div className="col-span-3 col-start-8 pt-14 pl-11 row-start-1 bg-bg border-l h-screen w-full flex flex-col">
+      <div className="col-span-3 col-start-8 pt-14 px-2 md:px-0 md:pl-11 row-start-1 bg-bg border-l h-screen w-full flex flex-col">
         <div className="w-full pb-4">
           <CheckoutItem />
         </div>
@@ -166,8 +167,8 @@ const Checkout = () => {
           <span>1,400,000đ</span>
         </div>
       </div>
-      <div className="col-span-2 col-start-1 row-start-1" />
-      <div className="col-span-2 col-start-11 bg-bg" />
+      <div className="hidden md:block col-span-2 col-start-1 row-start-1" />
+      <div className="hidden md:block col-span-2 col-start-11 bg-bg" />
     </div>
   );
 };
