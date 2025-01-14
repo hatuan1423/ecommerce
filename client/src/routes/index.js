@@ -1,6 +1,7 @@
 import Account from "~/pages/AccountPage";
 import Address from "~/pages/AddressPage";
 import Cart from "~/pages/CartPage";
+import Checkout from "~/pages/CheckoutPage";
 import Collection from "~/pages/CollectionPage";
 import HomePage from "~/pages/HomePage";
 import Login from "~/pages/LoginPage";
@@ -26,6 +27,12 @@ export const routes = [
         page: Collection,
         title: "Tất cả sản phẩm - Baya",
         isHeader: true
+    },
+    {
+        path: "/checkout",
+        page: Checkout,
+        title: "Thanh toán đơn hàng - Baya",
+        isHeader: false
     },
     {
         path: "/account",
