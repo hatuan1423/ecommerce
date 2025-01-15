@@ -16,10 +16,6 @@ require('./dbs/init.mongodb')
 //handle error
 
 //init route
-app.get("/", (req, res, next) => {
-    return res.status(200).json({
-        message: "Hello world"
-    })
-})
+app.use('/', require("./routes"))
 
 module.exports = app
