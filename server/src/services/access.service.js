@@ -6,13 +6,7 @@ const crypto = require("crypto")
 const KeyTokenService = require("./keyToken.service")
 const { createTokenPair } = require("../auth/authUtils")
 const { getInfoData } = require("../utils")
-
-const RoleShop = {
-    SHOP: 'SHOP',
-    WRITER: 'WRITER',
-    EDITOR: 'EDITOR',
-    ADMIN: 'ADMIN'
-}
+const { ROLE_SHOP } = require("../constants")
 
 class AccessService {
     static signUp = async ({ name, email, password }) => {
@@ -26,10 +20,9 @@ class AccessService {
             }
             const hashPassword = await bcrypt.hash(password, 10)
             const newShop = await shopModel.create({
-                name, email, password: hashPassword, roles: [RoleShop.SHOP]
+                name, email, password: hashPassword, roles: [ROLE_SHOP.SHOP]
             })
             if (newShop) {
-                //create private key, public key
                 const publicKey = crypto.randomBytes(64).toString('hex')
                 const privateKey = crypto.randomBytes(64).toString('hex')
                 const keyStore = await KeyTokenService.createKeyToken({
