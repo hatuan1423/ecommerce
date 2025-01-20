@@ -3,6 +3,9 @@
 const shopModel = require("../models/shop.model")
 const bcrypt = require("bcrypt")
 const crypto = require("crypto")
+const KeyTokenService = require("./keyToken.service")
+const { createTokenPair } = require("../auth/authUtils")
+const { getInfoData } = require("../utils")
 
 const RoleShop = {
     SHOP: 'SHOP',
@@ -15,7 +18,7 @@ class AccessService {
     static signUp = async ({ name, email, password }) => {
         try {
             const hodelShop = await shopModel.findOne({ email }).lean()
-            if (!hodelShop) {
+            if (hodelShop) {
                 return {
                     code: 'xxx',
                     message: 'Shop already registered!'
@@ -27,10 +30,41 @@ class AccessService {
             })
             if (newShop) {
                 //create private key, public key
-                const { privateKey, publicKey } = crypto.generateKeyPairSync('rsa', {
-                    modulusLength: 4096,
+                const publicKey = crypto.randomBytes(64).toString('hex')
+                const privateKey = crypto.randomBytes(64).toString('hex')
+                const keyStore = await KeyTokenService.createKeyToken({
+                    userId: newShop._id,
+                    publicKey,
+                    privateKey
                 })
-                console.log({ privateKey, publicKey })
+                if (!keyStore) {
+                    return {
+                        code: 'xxx',
+                        message: 'keyStore error!'
+                    }
+                }
+                const tokens = await createTokenPair(
+                    {
+                        userId: newShop._id,
+                        email
+                    },
+                    publicKey,
+                    privateKey
+                )
+                return {
+                    code: 201,
+                    metadata: {
+                        shop: getInfoData({
+                            fields: ['_id', 'name', 'email'],
+                            object: newShop
+                        }),
+                        tokens
+                    }
+                }
+            }
+            return {
+                code: 200,
+                metadata: null
             }
         } catch (error) {
             return {
