@@ -1,6 +1,6 @@
 'use strict'
 
-const { model, Schema, Types } = require("mongoose")
+const { model, Schema } = require("mongoose")
 const DOCUMENT_NAME = 'Key'
 const COLLECTION_NAME = 'Keys'
 
@@ -9,7 +9,7 @@ const keyTokenSchema = new Schema({
     publicKey: { type: String, required: true },
     privateKey: { type: String, required: true },
     refreshToken: { type: String, required: true },
-    refreshTokensUsed: { type: Array, default: [] },
+    refreshTokensUsed: { type: [String], default: [] },
 },
     {
         timestamps: true,

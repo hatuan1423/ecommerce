@@ -5,8 +5,11 @@ const DOCUMENT_NAME = 'Shop'
 const COLLECTION_NAME = 'Shops'
 
 const shopSchema = new Schema({
-    name: { type: String, trim: true, maxLength: 150 },
-    email: { type: String, trim: true, unique: true },
+    firstName: { type: String, trim: true, maxLength: 50, required: true },
+    lastName: { type: String, trim: true, maxLength: 50, required: true },
+    dateOfBirth: { type: Date, required: true },
+    gender: { type: String, enum: ['male', 'female'], required: true },
+    email: { type: String, trim: true, unique: true, required: true },
     password: { type: String, required: true },
     status: { type: String, enum: ['active', 'inactive'], default: 'inactive' },
     verify: { type: Schema.Types.Boolean, default: false },
