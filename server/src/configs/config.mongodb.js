@@ -8,7 +8,7 @@ const prod = {
         host: process.env.PROD_DB_HOST || 'localhost',
         port: process.env.PROD_DB_PORT || 27017,
         name: process.env.PROD_DB_NAME || 'shopPROD'
-    }
+    },
 }
 
 const dev = {
@@ -19,7 +19,7 @@ const dev = {
         host: process.env.DEV_DB_HOST || 'localhost',
         port: process.env.DEV_DB_PORT || 27017,
         name: process.env.DEV_DB_NAME || 'shopDEV'
-    }
+    },
 }
 
 const config = { dev, prod }

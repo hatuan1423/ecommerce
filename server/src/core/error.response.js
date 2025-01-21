@@ -40,10 +40,17 @@ class UnauthorizedError extends ErrorResponse {
     }
 }
 
+class ValidationError extends ErrorResponse {
+    constructor(message = ReasonPhrases.UNPROCESSABLE_ENTITY, statusCode = StatusCodes.UNPROCESSABLE_ENTITY) {
+        super(message.map(el => el['msg']).toString(), statusCode)
+    }
+}
+
 module.exports = {
     ConflictRequestError,
     BadRequestError,
     NotFoundError,
     ForbiddenError,
-    UnauthorizedError
+    UnauthorizedError,
+    ValidationError
 }

@@ -1,6 +1,7 @@
 'use strict'
 
 const jwt = require("jsonwebtoken")
+const crypto = require("crypto")
 
 const createTokenPair = async (payload, publicKey, privateKey) => {
     try {
@@ -19,6 +20,16 @@ const createTokenPair = async (payload, publicKey, privateKey) => {
     }
 }
 
+const createKeyPair = () => {
+    const publicKey = crypto.randomBytes(64).toString('hex')
+    const privateKey = crypto.randomBytes(64).toString('hex')
+    return {
+        publicKey,
+        privateKey
+    }
+}
+
 module.exports = {
-    createTokenPair
+    createTokenPair,
+    createKeyPair
 }

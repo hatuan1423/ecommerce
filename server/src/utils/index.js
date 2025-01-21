@@ -6,6 +6,11 @@ const getInfoData = ({ fields = [], object = {} }) => {
     return _.pick(object, fields)
 }
 
+const errorFormatter = ({ location, msg, param, value, nestedErrors }) => {
+    return `${msg}`;
+};
+
 module.exports = {
-    getInfoData
+    getInfoData,
+    errorFormatter
 }
