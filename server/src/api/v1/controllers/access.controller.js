@@ -11,9 +11,17 @@ class AccessController {
         }).send(res)
     }
     login = async (req, res, next) => {
+        const data = await AccessService.login(req.body)
+        const { tokens } = data
+        res.cookie('refreshToken', tokens.refreshToken, {
+            httpOnly: true,
+            secure: false,
+            sameSite: 'strict',
+            maxAge: 7 * 24 * 60 * 60 * 1000
+        })
         new SuccessResponse({
             message: "Login OK!",
-            metadata: await AccessService.login(req.body)
+            metadata: data
         }).send(res)
     }
     logout = async (req, res, next) => {

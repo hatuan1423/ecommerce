@@ -5,6 +5,7 @@ const { default: helmet } = require('helmet')
 const morgan = require('morgan')
 const cors = require('cors')
 const app = express()
+const cookieParser = require("cookie-parser")
 
 
 //init middleware
@@ -13,6 +14,7 @@ app.use(helmet())
 app.use(compression())
 app.use(express.json())
 app.use(cors())
+app.use(cookieParser())
 app.use(express.urlencoded({ extended: true }))
 
 require('./dbs/init.mongodb')

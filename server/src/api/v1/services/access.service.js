@@ -7,8 +7,8 @@ const { createTokenPair, createKeyPair, verifyJWT } = require("../auth/authUtils
 const { getInfoData } = require("../utils")
 const { ROLE_SHOP } = require("../constants")
 const { BadRequestError, UnauthorizedError, ForbiddenError } = require("../core/error.response")
-const { findByEmail } = require("./shop.service")
 const keyTokenModel = require("../models/keyToken.model")
+const { findByEmail } = require("../models/repositories/shop.repository")
 
 class AccessService {
     static signUp = async ({ firstName, lastName, dateOfBirth, gender, email, password }) => {
@@ -16,7 +16,7 @@ class AccessService {
         if (foundShop) {
             throw new BadRequestError("Shop already registered!")
         }
-        const hashPassword = await bcrypt.hash(password, 10)
+        const hashPassword = bcrypt.hashSync(password, 10)
         const newShop = await shopModel.create({
             firstName, lastName, dateOfBirth, gender, email, password: hashPassword, roles: [ROLE_SHOP.SHOP]
         })
@@ -58,7 +58,7 @@ class AccessService {
         if (!foundShop) {
             throw new BadRequestError("Shop not registered!")
         }
-        const match = bcrypt.compare(password, foundShop.password)
+        const match = bcrypt.compareSync(password, foundShop.password)
         if (!match) {
             throw new UnauthorizedError("Authentication error!")
         }
@@ -135,6 +135,7 @@ class AccessService {
             tokens
         }
     }
+
 
 }
 

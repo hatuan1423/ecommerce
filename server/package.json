@@ -5,12 +5,13 @@
   "scripts": {
     "dev": "node --watch server.js"
   },
-  "author": "",
+  "author": "dhtuan",
   "license": "ISC",
   "description": "",
   "dependencies": {
     "bcrypt": "^5.1.1",
     "compression": "^1.7.5",
+    "cookie-parser": "^1.4.7",
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
     "express-validator": "^7.2.1",
@@ -18,7 +19,8 @@
     "jsonwebtoken": "^9.0.2",
     "lodash": "^4.17.21",
     "mongoose": "^8.9.5",
-    "morgan": "^1.10.0"
+    "morgan": "^1.10.0",
+    "nodemailer": "^6.10.0"
   },
   "devDependencies": {
     "cors": "^2.8.5"
