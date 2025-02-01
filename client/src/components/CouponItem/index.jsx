@@ -1,8 +1,13 @@
-import { Popover } from "antd";
-import { PiWarningCircleLight } from "react-icons/pi";
-import PreviewCoupon from "../PreviewCoupon";
+import { Popover } from 'antd';
+import { PiWarningCircleLight } from 'react-icons/pi';
+import PreviewCoupon from '../PreviewCoupon';
+import useCopyToClipboard from '~/hooks/useCopyToClipboard';
 
 const CouponItem = ({ home }) => {
+  const { isCopied, copyToClipboard } = useCopyToClipboard();
+  const handleSaveUrl = () => {
+    copyToClipboard('test');
+  };
   return (
     <div className="w-[333px] h-[99px] relative shadow-sm flex items-center px-2 bg-[#FDF0D1] rounded-xl border-border border-1">
       <div className="bg-[#F1C150] p-[10px] rounded-xl">
@@ -30,19 +35,22 @@ const CouponItem = ({ home }) => {
             </span>
             <span className="text-xs">HSD: 31/01/2025</span>
           </div>
-          <button className="w-[150px] uppercase bg-red text-[10px] leading-tight rounded-full text-white py-1">
-            Sao chép mã
+          <button
+            onClick={() => handleSaveUrl('test')}
+            className="w-[150px] uppercase bg-red text-[10px] leading-tight rounded-full text-white py-1"
+          >
+            {isCopied ? 'Đã sao chép' : 'Sao chép mã'}
           </button>
         </div>
       </div>
       <div
         className={`w-4 h-4 ${
-          home ? "bg-bg" : " bg-white"
+          home ? 'bg-bg' : ' bg-white'
         } rounded-full absolute top-0 translate-x-[66px] transform -translate-y-1/2`}
       ></div>
       <div
         className={`w-4 h-4 ${
-          home && "bg-bg"
+          home && 'bg-bg'
         } rounded-full absolute -bottom-3 translate-x-[66px] transform`}
       ></div>
     </div>

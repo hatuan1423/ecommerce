@@ -1,5 +1,5 @@
-import { InputNumber, Modal } from "antd";
-import Button from "../Button";
+import { InputNumber, Modal } from 'antd';
+import Button from '../Button';
 const PreviewProduct = ({ open, handleClose }) => {
   const onChange = (value) => {};
 
@@ -29,7 +29,7 @@ const PreviewProduct = ({ open, handleClose }) => {
                 <div className="w-full gap-x-1 flex items-center">
                   <span className="text-base font-light">Mã sản phẩm:</span>
                   <span className="text-sm font-semibold text-red">
-                    {" "}
+                    {' '}
                     2002535
                   </span>
                 </div>

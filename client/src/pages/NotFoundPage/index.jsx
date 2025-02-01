@@ -1,5 +1,5 @@
-import Button from "~/components/Button";
-import Wrapper from "~/components/Wrapper";
+import Button from '~/components/Button';
+import Wrapper from '~/components/Wrapper';
 
 const NotFoundPage = () => {
   return (

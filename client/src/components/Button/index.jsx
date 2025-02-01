@@ -15,9 +15,9 @@ const Button = ({
       {...rests}
       disabled={disable}
       onClick={onClick}
-      type={type || "button"}
+      type={type || 'button'}
       className={`inline-flex items-center text-base ${className} ${
-        disable && "cursor-not-allowed opacity-[0.3]"
+        disable && 'cursor-not-allowed opacity-[0.3]'
       }`}
     >
       {iconLeft && <div className={` ${iconLeftStyles}`}>{iconLeft}</div>}

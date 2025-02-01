@@ -1,6 +1,6 @@
-import Wrapper from "~/components/Wrapper";
-import { BiEdit } from "react-icons/bi";
-import { IoIosClose } from "react-icons/io";
+import Wrapper from '~/components/Wrapper';
+import { BiEdit } from 'react-icons/bi';
+import { IoIosClose } from 'react-icons/io';
 
 const Address = () => {
   return (
@@ -40,7 +40,7 @@ const Address = () => {
                 <div className="col-span-6 w-full flex flex-col md:px-4">
                   <div className="w-full bg-[#D9EDF7] py-4 px-3 flex items-center justify-between">
                     <div className="w-full text-14 font-semibold text-red">
-                      Tuấn Dương{" "}
+                      Tuấn Dương{' '}
                       <span className="font-normal">(Địa chỉ mặc định)</span>
                     </div>
                     <div className="w-full gap-x-2 flex items-center justify-end">

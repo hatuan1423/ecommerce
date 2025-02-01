@@ -1,14 +1,14 @@
-import React, { useRef } from "react";
-import Wrapper from "../Wrapper";
+import React, { useRef } from 'react';
+import Wrapper from '../Wrapper';
 import {
   IoIosArrowDropleftCircle,
   IoIosArrowDroprightCircle,
   IoIosArrowDropright,
-} from "react-icons/io";
-import { Carousel } from "antd";
-import { BLOGS, COLLECTIONS } from "~/assets/data";
-import CollectionItem from "../CollectionItem";
-import BlogItem from "../BlogItem";
+} from 'react-icons/io';
+import { Carousel } from 'antd';
+import { BLOGS, COLLECTIONS } from '~/assets/data';
+import CollectionItem from '../CollectionItem';
+import BlogItem from '../BlogItem';
 
 const Blog = () => {
   const carouselRef = useRef(null);
@@ -74,8 +74,8 @@ const Blog = () => {
               },
             ]}
           >
-            {BLOGS.map((item) => (
-              <BlogItem item={item} />
+            {BLOGS.map((item, index) => (
+              <BlogItem item={item} key={index} />
             ))}
           </Carousel>
         </div>

@@ -1,12 +1,12 @@
-import { useState } from "react";
-import { FaEye } from "react-icons/fa";
-import PreviewProduct from "../PreviewProduct";
+import { useState } from 'react';
+import { FaEye } from 'react-icons/fa';
+import PreviewProduct from '../PreviewProduct';
 
 const CollectionItem = () => {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(!open);
   return (
-    <div className="bg-white shadow-lg mr-2 rounded-md px-2 pb-3">
+    <div className="bg-white relative shadow-lg mr-2 rounded-md px-2 pb-3">
       <PreviewProduct open={open} handleClose={handleOpen} />
       <div className="relative group cursor-pointer overflow-hidden">
         <div className="flex md:transition-transform md:duration-500 md:group-hover:translate-x-[-100%]">
@@ -38,7 +38,7 @@ const CollectionItem = () => {
           <span className="font-semibold text-sm">39.000 đ</span>
         </div>
         {/* 2 */}
-        <div className="w-full  flex items-center cursor-pointer gap-x-3 justify-center">
+        <div className="flex items-center gap-x-3 pl-2 border border-transparent rounded-full cursor-pointer hover:border-red transition">
           <span className="font-bold text-xs uppercase">Thêm vào giỏ</span>
           <span className="w-8 h-8 flex items-center justify-center bg-red rounded-full cursor-pointer">
             <svg
@@ -54,6 +54,10 @@ const CollectionItem = () => {
             </svg>
           </span>
         </div>
+      </div>
+      {/* discount */}
+      <div className="w-11 h-5 absolute top-2 text-14 rounded-sm bg-[#FF0000] items-center flex justify-center text-white">
+        <span>-30%</span>
       </div>
     </div>
   );

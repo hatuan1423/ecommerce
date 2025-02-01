@@ -3,11 +3,11 @@ import {
   Routes,
   Route,
   useLocation,
-} from "react-router-dom";
-import { routes } from "./routes";
-import Default from "./components/Default";
-import React, { Fragment, useEffect } from "react";
-import { useSelector } from "react-redux";
+} from 'react-router-dom';
+import { routes } from './routes';
+import Default from './components/Default';
+import React, { Fragment, useEffect } from 'react';
+import { useSelector } from 'react-redux';
 
 function App() {
   const theme = useSelector((state) => state.theme.theme);

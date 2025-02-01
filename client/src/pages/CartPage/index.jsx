@@ -1,8 +1,8 @@
-import { Breadcrumb } from "antd";
-import React from "react";
-import Button from "~/components/Button";
-import CouponItem from "~/components/CouponItem";
-import Wrapper from "~/components/Wrapper";
+import { Breadcrumb } from 'antd';
+import React from 'react';
+import Button from '~/components/Button';
+import CouponItem from '~/components/CouponItem';
+import Wrapper from '~/components/Wrapper';
 
 const Cart = () => {
   return (
@@ -11,10 +11,10 @@ const Cart = () => {
         <Breadcrumb
           items={[
             {
-              title: "Home",
+              title: 'Home',
             },
             {
-              title: "Giỏ hàng",
+              title: 'Giỏ hàng',
             },
           ]}
         />

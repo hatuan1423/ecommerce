@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import TextInput from "../TextInput";
 import Wrapper from "../Wrapper";
 import { IoSearch } from "react-icons/io5";
@@ -11,20 +11,25 @@ import Cart from "../Cart";
 
 const Header = () => {
   const [openDrawer, setOpenDrawer] = useState(false);
+  const [openLogin, setOpenLogin] = useState(false);
   const handleOpenDrawer = () => setOpenDrawer(!openDrawer);
   const [collapse, setCollapse] = useState(null);
   const toggleCollapse = (index) =>
     setCollapse(collapse === index ? null : index);
 
+  const handleOpenChangeLogin = () => {
+    setOpenLogin(!openLogin);
+  };
+
   return (
-    <Wrapper className="bg-red md:flex flex-col pt-[18px] pb-4">
+    <Wrapper className="bg-red flex flex-col pt-[18px] pb-4">
       <div className="w-full flex items-center justify-between">
         {/* 1 */}
         <div className="flex items-center justify-center gap-x-5">
           <CgMenuLeft
             onClick={handleOpenDrawer}
             size={30}
-            className="text-white cursor-pointer block md:hidden"
+            className="text-white cursor-pointer block lg:hidden"
           />
 
           <Drawer
@@ -54,7 +59,7 @@ const Header = () => {
                     </div>
                     {collapse === index && (
                       <ul>
-                        {item?.sub?.map((child) => (
+                        {item?.subs?.map((child) => (
                           <li
                             key={child}
                             className="flex justify-between py-1 items-center cursor-pointer"
@@ -72,16 +77,15 @@ const Header = () => {
                 <p className="uppercase text-base text-red ">Bạn cần hỗ trợ?</p>
                 <div className="w-full flex gap-x-4 items-center">
                   <svg
-                    class="icon icon--bi-phone"
                     className="w-6 h-6"
                     viewBox="0 0 24 24"
                     role="presentation"
                   >
                     <g
-                      stroke-width="2"
+                      strokeWidth="2"
                       fill="none"
-                      fill-rule="evenodd"
-                      stroke-linecap="square"
+                      fillRule="evenodd"
+                      strokeLinecap="square"
                     >
                       <path
                         d="M17 15l-3 3-8-8 3-3-5-5-3 3c0 9.941 8.059 18 18 18l3-3-5-5z"
@@ -97,31 +101,30 @@ const Header = () => {
                 </div>
                 <div className="w-full flex gap-x-4 items-center">
                   <svg
-                    class="icon icon--bi-email"
                     viewBox="0 0 22 22"
                     role="presentation"
                     className="w-6 h-6"
                   >
-                    <g fill="none" fill-rule="evenodd">
+                    <g fill="none" fillRule="evenodd">
                       <path
                         stroke="#252a2b"
                         d="M.916667 10.08333367l3.66666667-2.65833334v4.65849997zm20.1666667 0L17.416667 7.42500033v4.65849997z"
                       ></path>
                       <path
                         stroke="#252a2b"
-                        stroke-width="2"
+                        strokeWidth="2"
                         d="M4.58333367 7.42500033L.916667 10.08333367V21.0833337h20.1666667V10.08333367L17.416667 7.42500033"
                       ></path>
                       <path
                         stroke="#252a2b"
-                        stroke-width="2"
+                        strokeWidth="2"
                         d="M4.58333367 12.1000003V.916667H17.416667v11.1833333m-16.5-2.01666663L21.0833337 21.0833337m0-11.00000003L11.0000003 15.5833337"
                       ></path>
                       <path
                         d="M8.25000033 5.50000033h5.49999997M8.25000033 9.166667h5.49999997"
                         stroke="#252a2b"
-                        stroke-width="2"
-                        stroke-linecap="square"
+                        strokeWidth="2"
+                        strokeLinecap="square"
                       ></path>
                     </g>
                   </svg>
@@ -141,7 +144,7 @@ const Header = () => {
         </div>
 
         {/* 2 */}
-        <div className="hidden md:flex flex-col items-center gap-y-2">
+        <div className="hidden lg:flex flex-col items-center gap-y-2">
           <TextInput
             placeholder="Tìm kiếm sản phẩm..."
             className="w-[600px] rounded-lg"
@@ -159,25 +162,21 @@ const Header = () => {
         </div>
         {/* 3 */}
         <div className="flex items-center gap-x-2 justify-between">
-          <Popover content={<Login />} placement="bottomRight" trigger="click">
+          <Popover
+            content={<Login />}
+            placement="bottomRight"
+            trigger="click"
+            open={openLogin}
+            onOpenChange={handleOpenChangeLogin}
+          >
             <div className="w-full cursor-pointer flex items-center gap-x-2 justify-center">
-              <span className="w-5 flex items-center h-5 ">
-                <svg
-                  class="svg-ico-account"
-                  viewBox="0 0 1024 1024"
-                  className="fill-white"
-                >
-                  <path
-                    class="path1"
-                    d="M486.4 563.2c-155.275 0-281.6-126.325-281.6-281.6s126.325-281.6 281.6-281.6 281.6 126.325 281.6 281.6-126.325 281.6-281.6 281.6zM486.4 51.2c-127.043 0-230.4 103.357-230.4 230.4s103.357 230.4 230.4 230.4c127.042 0 230.4-103.357 230.4-230.4s-103.358-230.4-230.4-230.4z"
-                  ></path>
-                  <path
-                    class="path2"
-                    d="M896 1024h-819.2c-42.347 0-76.8-34.451-76.8-76.8 0-3.485 0.712-86.285 62.72-168.96 36.094-48.126 85.514-86.36 146.883-113.634 74.957-33.314 168.085-50.206 276.797-50.206 108.71 0 201.838 16.893 276.797 50.206 61.37 27.275 110.789 65.507 146.883 113.634 62.008 82.675 62.72 165.475 62.72 168.96 0 42.349-34.451 76.8-76.8 76.8zM486.4 665.6c-178.52 0-310.267 48.789-381 141.093-53.011 69.174-54.195 139.904-54.2 140.61 0 14.013 11.485 25.498 25.6 25.498h819.2c14.115 0 25.6-11.485 25.6-25.6-0.006-0.603-1.189-71.333-54.198-140.507-70.734-92.304-202.483-141.093-381.002-141.093z"
-                  ></path>
+              <span className="lg:w-7 w-5 h-5 lg:h-7 flex items-center ">
+                <svg viewBox="0 0 1024 1024" className="fill-white">
+                  <path d="M486.4 563.2c-155.275 0-281.6-126.325-281.6-281.6s126.325-281.6 281.6-281.6 281.6 126.325 281.6 281.6-126.325 281.6-281.6 281.6zM486.4 51.2c-127.043 0-230.4 103.357-230.4 230.4s103.357 230.4 230.4 230.4c127.042 0 230.4-103.357 230.4-230.4s-103.358-230.4-230.4-230.4z"></path>
+                  <path d="M896 1024h-819.2c-42.347 0-76.8-34.451-76.8-76.8 0-3.485 0.712-86.285 62.72-168.96 36.094-48.126 85.514-86.36 146.883-113.634 74.957-33.314 168.085-50.206 276.797-50.206 108.71 0 201.838 16.893 276.797 50.206 61.37 27.275 110.789 65.507 146.883 113.634 62.008 82.675 62.72 165.475 62.72 168.96 0 42.349-34.451 76.8-76.8 76.8zM486.4 665.6c-178.52 0-310.267 48.789-381 141.093-53.011 69.174-54.195 139.904-54.2 140.61 0 14.013 11.485 25.498 25.6 25.498h819.2c14.115 0 25.6-11.485 25.6-25.6-0.006-0.603-1.189-71.333-54.198-140.507-70.734-92.304-202.483-141.093-381.002-141.093z"></path>
                 </svg>
               </span>
-              <div className="w-full md:flex flex-col hidden">
+              <div className="w-full md:hidden lg:flex flex-col hidden">
                 <span className="text-white text-sm ">Đăng nhập / Đăng ký</span>
                 <span className="text-white text-sm">Tài khoản của tôi</span>
               </div>
@@ -185,7 +184,7 @@ const Header = () => {
           </Popover>
 
           <Popover content={<Cart />} placement="bottomLeft" trigger="click">
-            <div className=" flex cursor-pointer text-white">
+            <div className=" flex gap-x-2 cursor-pointer text-white">
               <Badge count={2}>
                 <span>
                   <svg
@@ -204,15 +203,18 @@ const Header = () => {
                 </span>
               </Badge>
 
-              <div className="hidden w-full md:block">Giỏ hàng</div>
+              <div className="hidden w-full lg:block text-14 whitespace-nowrap">
+                Giỏ hàng
+              </div>
             </div>
           </Popover>
         </div>
       </div>
-      <div className="flex md:hidden flex-col items-center gap-y-2">
+
+      <div className="flex lg:hidden w-full flex-col items-center gap-y-2">
         <TextInput
           placeholder="Tìm kiếm sản phẩm..."
-          className="w-[600px] rounded-full md:rounded-lg"
+          className="w-full rounded-full md:rounded-lg"
           iconRightStyles="md:bg-red px-2 md:px-6 bg-transparent rounded-lg py-2 cursor-pointer"
           iconRight={<IoSearch size={20} className="text-black" />}
         />

@@ -1,13 +1,13 @@
-import React, { useRef } from "react";
-import Wrapper from "../Wrapper";
+import React, { useRef } from 'react';
+import Wrapper from '../Wrapper';
 import {
   IoIosArrowDropleftCircle,
   IoIosArrowDroprightCircle,
   IoIosArrowDropright,
-} from "react-icons/io";
-import { Carousel } from "antd";
-import { COLLECTIONS } from "~/assets/data";
-import CollectionItem from "../CollectionItem";
+} from 'react-icons/io';
+import { Carousel } from 'antd';
+import { COLLECTIONS } from '~/assets/data';
+import CollectionItem from '../CollectionItem';
 
 const ProductViewed = () => {
   const carouselRef = useRef(null);

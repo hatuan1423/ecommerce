@@ -1,7 +1,7 @@
-import React from "react";
-import { Carousel } from "antd";
-import Wrapper from "../Wrapper";
-import { SLIDER_IMGS } from "~/constants";
+import React from 'react';
+import { Carousel } from 'antd';
+import Wrapper from '../Wrapper';
+import { SLIDER_IMGS } from '~/constants';
 
 const Slider = () => (
   <Wrapper className="h-full px-0">

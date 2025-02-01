@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from "react";
-import { Breadcrumb, Select } from "antd";
-import TextInput from "~/components/TextInput";
-import * as ProvinceService from "~/services/ProvinceService";
-import { convertData } from "~/utils";
-import Button from "~/components/Button";
-import CheckoutItem from "~/components/CheckoutItem";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from 'react';
+import { Breadcrumb, Select } from 'antd';
+import TextInput from '~/components/TextInput';
+import * as ProvinceService from '~/services/ProvinceService';
+import { convertData } from '~/utils';
+import Button from '~/components/Button';
+import CheckoutItem from '~/components/CheckoutItem';
+import { Link } from 'react-router-dom';
 
 const Checkout = () => {
   const [province, setProvince] = useState([]);
@@ -76,7 +76,7 @@ const Checkout = () => {
                   title: <Link to="/cart">Giỏ hàng</Link>,
                 },
                 {
-                  title: "Phương thức thanh toán",
+                  title: 'Phương thức thanh toán',
                 },
               ]}
             />
@@ -106,8 +106,8 @@ const Checkout = () => {
                   className="w-full"
                   options={[
                     {
-                      value: "jack",
-                      label: "Jack",
+                      value: 'jack',
+                      label: 'Jack',
                     },
                   ]}
                 />

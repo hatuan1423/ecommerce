@@ -1,39 +1,39 @@
-import { Breadcrumb } from "antd";
-import Wrapper from "~/components/Wrapper";
-import { FaFacebook, FaFacebookMessenger, FaPinterest } from "react-icons/fa";
-import { AiFillTwitterCircle } from "react-icons/ai";
-import useSlider from "~/hooks/useSlider";
-import { IoIosArrowBack } from "react-icons/io";
-import { IoIosArrowForward } from "react-icons/io";
-import { IoMdCheckmark } from "react-icons/io";
-import CouponItem from "~/components/CouponItem";
-import Button from "~/components/Button";
-import { FaPlus } from "react-icons/fa";
-import ProductRelated from "~/components/ProductRelated";
-import ProductViewed from "~/components/ProductViewed";
+import { Breadcrumb } from 'antd';
+import Wrapper from '~/components/Wrapper';
+import { FaFacebook, FaFacebookMessenger, FaPinterest } from 'react-icons/fa';
+import { AiFillTwitterCircle } from 'react-icons/ai';
+import useSlider from '~/hooks/useSlider';
+import { IoIosArrowBack } from 'react-icons/io';
+import { IoIosArrowForward } from 'react-icons/io';
+import { IoMdCheckmark } from 'react-icons/io';
+import CouponItem from '~/components/CouponItem';
+import Button from '~/components/Button';
+import { FaPlus } from 'react-icons/fa';
+import ProductRelated from '~/components/ProductRelated';
+import ProductViewed from '~/components/ProductViewed';
 
 const Product = () => {
   const images = [
     {
       id: 1,
-      src: "https://product.hstatic.net/200000796751/product/susana_bath_sponge_baya_2002072_1_copy_f355fffae2cb4894aaefdb3b1c02fa63_compact.jpg",
-      alt: "Image 1",
+      src: 'https://product.hstatic.net/200000796751/product/susana_bath_sponge_baya_2002072_1_copy_f355fffae2cb4894aaefdb3b1c02fa63_compact.jpg',
+      alt: 'Image 1',
     },
     {
       id: 2,
-      src: "https://product.hstatic.net/200000796751/product/susana_bath_sponge_baya_2002071_copy_3e725b3d3a134f12ae086b9f75545d35_compact.jpg",
-      alt: "Image 2",
+      src: 'https://product.hstatic.net/200000796751/product/susana_bath_sponge_baya_2002071_copy_3e725b3d3a134f12ae086b9f75545d35_compact.jpg',
+      alt: 'Image 2',
     },
   ];
 
   const images2 = [
     {
-      src: "https://product.hstatic.net/200000796751/product/susana_bath_sponge_baya_2002072_1_copy_f355fffae2cb4894aaefdb3b1c02fa63_master.jpg",
-      alt: "Image 1",
+      src: 'https://product.hstatic.net/200000796751/product/susana_bath_sponge_baya_2002072_1_copy_f355fffae2cb4894aaefdb3b1c02fa63_master.jpg',
+      alt: 'Image 1',
     },
     {
-      src: "https://product.hstatic.net/200000796751/product/susana_bath_sponge_baya_2002071_copy_3e725b3d3a134f12ae086b9f75545d35_master.jpg",
-      alt: "Image 2",
+      src: 'https://product.hstatic.net/200000796751/product/susana_bath_sponge_baya_2002071_copy_3e725b3d3a134f12ae086b9f75545d35_master.jpg',
+      alt: 'Image 2',
     },
   ];
 
@@ -50,10 +50,10 @@ const Product = () => {
         <Breadcrumb
           items={[
             {
-              title: "Home",
+              title: 'Home',
             },
             {
-              title: "Product",
+              title: 'Product',
             },
           ]}
         />
@@ -70,7 +70,7 @@ const Product = () => {
                   src={image.src}
                   alt=""
                   className={`border-1 border-border ${
-                    currentIndex === index && "border-red"
+                    currentIndex === index && 'border-red'
                   }`}
                 />
               ))}
@@ -139,7 +139,7 @@ const Product = () => {
                   <div
                     onClick={() => handleStyleChange(index)}
                     className={`py-2 px-3 rounded-sm cursor-pointer relative bg-white border-1 flex items-center justify-center  ${
-                      currentIndex === index && "border-red"
+                      currentIndex === index && 'border-red'
                     }`}
                   >
                     <span className="text-[12px] px-2 font-medium text-red">{`Loại ${
@@ -147,10 +147,10 @@ const Product = () => {
                     }`}</span>
                     <div
                       className={`absolute  top-0 right-0 h-0 ${
-                        currentIndex === index ? "block" : "hidden"
+                        currentIndex === index ? 'block' : 'hidden'
                       }`}
                     >
-                      <div class="w-0 relative  border-l-[20px] border-red border-b-transparent border-l-transparent border-r-[20px] border-b-[20px]">
+                      <div className="w-0 relative  border-l-[20px] border-red border-b-transparent border-l-transparent border-r-[20px] border-b-[20px]">
                         <IoMdCheckmark
                           size={10}
                           color="#fff"
@@ -166,7 +166,7 @@ const Product = () => {
               <span className="text-sm font-semibold">Số lượng:</span>
               <form className="">
                 <label
-                  for="quantity-input"
+                  htmlFor="quantity-input"
                   className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                 >
                   Choose quantity:
@@ -187,9 +187,9 @@ const Product = () => {
                     >
                       <path
                         stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
                         d="M1 1h16"
                       />
                     </svg>
@@ -218,9 +218,9 @@ const Product = () => {
                     >
                       <path
                         stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
                         d="M9 1v16M1 9h16"
                       />
                     </svg>
@@ -271,7 +271,7 @@ const Product = () => {
                   />
                 </span>
                 <span className="text-14 font-normal">
-                  Hotline: <span className="font-bold">1900 63 64 76</span>{" "}
+                  Hotline: <span className="font-bold">1900 63 64 76</span>{' '}
                   (9-21h)
                 </span>
               </div>

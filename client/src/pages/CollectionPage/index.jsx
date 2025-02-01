@@ -1,16 +1,16 @@
-import { Breadcrumb } from "antd";
-import Wrapper from "~/components/Wrapper";
-import { StyledCheckbox, StyledCollapse } from "./style";
-import { ImSortAlphaAsc } from "react-icons/im";
-import CollectionItem from "~/components/CollectionItem";
+import { Breadcrumb } from 'antd';
+import Wrapper from '~/components/Wrapper';
+import { StyledCheckbox, StyledCollapse } from './style';
+import { ImSortAlphaAsc } from 'react-icons/im';
+import CollectionItem from '~/components/CollectionItem';
 
 const Collection = () => {
   const onChange = (key) => {};
 
   const categorys = [
     {
-      key: "1",
-      label: "Danh mục sản phẩm",
+      key: '1',
+      label: 'Danh mục sản phẩm',
       children: (
         <ul className="text-base font-base">
           <li>Được mua nhiều gần đây</li>
@@ -23,8 +23,8 @@ const Collection = () => {
 
   const suppliers = [
     {
-      key: "1",
-      label: "Nhà cung cấp",
+      key: '1',
+      label: 'Nhà cung cấp',
       children: (
         <ul className="text-base font-base">
           <li>Được mua nhiều gần đây</li>
@@ -37,8 +37,8 @@ const Collection = () => {
 
   const prices = [
     {
-      key: "1",
-      label: "Giá",
+      key: '1',
+      label: 'Giá',
       children: (
         <ul className="text-base font-base">
           <StyledCheckbox>Dưới 1.000.000₫</StyledCheckbox>
@@ -57,10 +57,10 @@ const Collection = () => {
         <Breadcrumb
           items={[
             {
-              title: "Home",
+              title: 'Home',
             },
             {
-              title: "Danh mục",
+              title: 'Danh mục',
             },
           ]}
         />
@@ -68,21 +68,21 @@ const Collection = () => {
       <div className="w-full flex gap-x-10 ">
         <div className="w-1/3 md:flex gap-y-3 flex-col hidden">
           <StyledCollapse
-            defaultActiveKey={["1"]}
+            defaultActiveKey={['1']}
             onChange={onChange}
-            expandIconPosition={"end"}
+            expandIconPosition={'end'}
             items={categorys}
           />
           <StyledCollapse
-            defaultActiveKey={["1"]}
+            defaultActiveKey={['1']}
             onChange={onChange}
-            expandIconPosition={"end"}
+            expandIconPosition={'end'}
             items={suppliers}
           />
           <StyledCollapse
-            defaultActiveKey={["1"]}
+            defaultActiveKey={['1']}
             onChange={onChange}
-            expandIconPosition={"end"}
+            expandIconPosition={'end'}
             items={prices}
           />
         </div>

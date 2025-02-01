@@ -1,72 +1,72 @@
-import Account from "~/pages/AccountPage";
-import Address from "~/pages/AddressPage";
-import Cart from "~/pages/CartPage";
-import Checkout from "~/pages/CheckoutPage";
-import Collection from "~/pages/CollectionPage";
-import HomePage from "~/pages/HomePage";
-import Login from "~/pages/LoginPage";
-import NotFoundPage from "~/pages/NotFoundPage";
-import Product from "~/pages/ProductPage";
-import Register from "~/pages/RegisterPage";
+import Account from '~/pages/AccountPage';
+import Address from '~/pages/AddressPage';
+import Cart from '~/pages/CartPage';
+import Checkout from '~/pages/CheckoutPage';
+import Collection from '~/pages/CollectionPage';
+import HomePage from '~/pages/HomePage';
+import Login from '~/pages/LoginPage';
+import NotFoundPage from '~/pages/NotFoundPage';
+import Product from '~/pages/ProductPage';
+import Register from '~/pages/RegisterPage';
 
 export const routes = [
     {
-        path: "/",
+        path: '/',
         page: HomePage,
-        title: "Siêu thị nội thất & trang trí Baya",
+        title: 'Siêu thị nội thất & trang trí Baya',
         isHeader: true
     },
     {
-        path: "/account/register",
+        path: '/account/register',
         page: Register,
-        title: "Tạo tài khoản - Baya",
+        title: 'Tạo tài khoản - Baya',
         isHeader: true
     },
     {
-        path: "/collection",
+        path: '/collection',
         page: Collection,
-        title: "Tất cả sản phẩm - Baya",
+        title: 'Tất cả sản phẩm - Baya',
         isHeader: true
     },
     {
-        path: "/checkout",
+        path: '/checkout',
         page: Checkout,
-        title: "Thanh toán đơn hàng - Baya",
+        title: 'Thanh toán đơn hàng - Baya',
         isHeader: false
     },
     {
-        path: "/account",
+        path: '/account',
         page: Account,
-        title: "Tài khoản - Baya",
+        title: 'Tài khoản - Baya',
         isHeader: true
     },
     {
-        path: "/account/address",
+        path: '/account/address',
         page: Address,
-        title: "Địa chỉ - Baya",
+        title: 'Địa chỉ - Baya',
         isHeader: true
     },
     {
-        path: "/product",
+        path: '/product',
         page: Product,
-        title: "Sản phẩm - Baya",
+        title: 'Sản phẩm - Baya',
         isHeader: true
     },
     {
-        path: "/cart",
+        path: '/cart',
         page: Cart,
-        title: "Giỏ hàng của bạn - Baya",
+        title: 'Giỏ hàng của bạn - Baya',
         isHeader: true
     },
     {
-        path: "/account/login",
-        title: "Tài khoản - Baya",
+        path: '/account/login',
+        title: 'Tài khoản - Baya',
         page: Login,
         isHeader: true
     },
     {
-        path: "*",
-        title: "Không tìm thấy trang - Baya",
+        path: '*',
+        title: 'Không tìm thấy trang - Baya',
         page: NotFoundPage,
         isHeader: true
     },

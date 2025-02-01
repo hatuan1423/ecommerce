@@ -1,5 +1,5 @@
-import { Checkbox, Collapse } from "antd";
-import styled from "styled-components";
+import { Checkbox, Collapse } from 'antd';
+import styled from 'styled-components';
 
 export const StyledCheckbox = styled(Checkbox)`
 .ant-checkbox-checked .ant-checkbox-inner {

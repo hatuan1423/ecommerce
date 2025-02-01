@@ -17,17 +17,17 @@ const Cart = () => {
           <svg width="50" height="50" viewBox="0 0 81 70">
             <g
               transform="translate(0 2)"
-              stroke-width="4"
+              strokeWidth="4"
               fill="none"
-              fill-rule="evenodd"
+              fillRule="evenodd"
             >
-              <circle stroke-linecap="square" cx="34" cy="60" r="6"></circle>
-              <circle stroke-linecap="square" cx="67" cy="60" r="6"></circle>
+              <circle strokeLinecap="square" cx="34" cy="60" r="6"></circle>
+              <circle strokeLinecap="square" cx="67" cy="60" r="6"></circle>
               <path d="M22.9360352 15h54.8070373l-4.3391876 30H30.3387146L19.6676025 0H.99560547"></path>
             </g>
           </svg>
         </div>
-        <span>Hiện chưa có sản phẩm</span>
+        <span className="text-ascent-2">Hiện chưa có sản phẩm</span>
       </div>
       {/* 3 */}
       <div className="w-full flex items-center justify-between">

@@ -1,7 +1,7 @@
-import React from "react";
-import Wrapper from "../Wrapper";
-import CategoryItem from "../CategoryItem";
-import { CATEGORYS } from "~/assets/data";
+import React from 'react';
+import Wrapper from '../Wrapper';
+import CategoryItem from '../CategoryItem';
+import { CATEGORYS } from '~/assets/data';
 
 const Category = () => {
   return (

@@ -1,13 +1,9 @@
-import React, { useRef } from "react";
-import Wrapper from "../Wrapper";
-import {
-  IoIosArrowDropleftCircle,
-  IoIosArrowDroprightCircle,
-  IoIosArrowDropright,
-} from "react-icons/io";
-import { Carousel } from "antd";
-import { COLLECTIONS } from "~/assets/data";
-import CollectionItem from "../CollectionItem";
+import React, { useRef } from 'react';
+import Wrapper from '../Wrapper';
+import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
+import { Carousel } from 'antd';
+import { COLLECTIONS } from '~/assets/data';
+import CollectionItem from '../CollectionItem';
 
 const Collection2 = () => {
   const carouselRef = useRef(null);
@@ -34,17 +30,25 @@ const Collection2 = () => {
               Back To School - Up To 60%
             </span>
           </div>
-          <div className="w-full flex items-center justify-end">
-            <IoIosArrowDropleftCircle
+          <div className="w-full flex gap-x-2 items-center justify-end">
+            <div
               onClick={prev}
-              size={30}
-              className="text-black cursor-pointer"
-            />
-            <IoIosArrowDroprightCircle
+              className="flex items-center border-1 border-border justify-center hover:bg-red cursor-pointer shadow-sm w-7 h-7 rounded-full bg-white"
+            >
+              <IoIosArrowBack
+                size={20}
+                className="hover:text-white text-[#C1B8B7]"
+              />
+            </div>
+            <div
               onClick={next}
-              size={30}
-              className="text-black cursor-pointer"
-            />
+              className="flex items-center border-1 border-border justify-center hover:bg-red cursor-pointer shadow-sm w-7 h-7 rounded-full bg-white"
+            >
+              <IoIosArrowForward
+                size={20}
+                className="hover:text-white text-[#C1B8B7]"
+              />
+            </div>
           </div>
         </div>
 
@@ -73,8 +77,8 @@ const Collection2 = () => {
               },
             ]}
           >
-            {COLLECTIONS.map((item) => (
-              <CollectionItem item={item} />
+            {COLLECTIONS.map((item, index) => (
+              <CollectionItem item={item} key={index} />
             ))}
           </Carousel>
         </div>

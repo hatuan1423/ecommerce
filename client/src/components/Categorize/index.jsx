@@ -1,7 +1,7 @@
-import React from "react";
-import Wrapper from "../Wrapper";
-import Button from "../Button";
-import { CATEGORIZES } from "~/constants";
+import React from 'react';
+import Wrapper from '../Wrapper';
+import Button from '../Button';
+import { CATEGORIZES } from '~/constants';
 
 const Categorize = () => {
   return (

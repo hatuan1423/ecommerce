@@ -1,13 +1,10 @@
-import React, { useRef } from "react";
-import Wrapper from "../Wrapper";
-import {
-  IoIosArrowDropleftCircle,
-  IoIosArrowDroprightCircle,
-  IoIosArrowDropright,
-} from "react-icons/io";
-import { Carousel } from "antd";
-import { COLLECTIONS } from "~/assets/data";
-import CollectionItem from "../CollectionItem";
+import React, { useRef } from 'react';
+import Wrapper from '../Wrapper';
+import { IoIosArrowDropright, IoIosArrowForward } from 'react-icons/io';
+import { IoIosArrowBack } from 'react-icons/io';
+import { Carousel } from 'antd';
+import { COLLECTIONS } from '~/assets/data';
+import CollectionItem from '../CollectionItem';
 
 const Collection = () => {
   const carouselRef = useRef(null);
@@ -28,7 +25,7 @@ const Collection = () => {
     <Wrapper>
       <div className="w-full py-4 px-2 rounded-lg bg-[#FFEEF0] flex flex-col items-center">
         {/* Header */}
-        <div className="w-full flex mb-4 items-center justify-between">
+        <div className="w-full px-1 flex mb-4 items-center justify-between">
           <div className="w-full flex items-center gap-x-2">
             <span className="relative flex h-2 w-2">
               <span className="absolute inline-flex h-full w-full rounded-full bg-red"></span>
@@ -39,17 +36,25 @@ const Collection = () => {
             </div>
           </div>
           <div className="w-full flex gap-x-1 items-center justify-end">
-            <IoIosArrowDropleftCircle
+            <div
               onClick={prev}
-              size={35}
-              className="text-white  cursor-pointer hover:text-red"
-            />
+              className="flex items-center border-1 border-border justify-center hover:bg-red cursor-pointer shadow-sm w-8 h-8 rounded-full bg-white"
+            >
+              <IoIosArrowBack
+                size={20}
+                className="hover:text-white text-[#C1B8B7]"
+              />
+            </div>
 
-            <IoIosArrowDroprightCircle
+            <div
               onClick={next}
-              size={35}
-              className="text-white cursor-pointer hover:text-red"
-            />
+              className="flex items-center border-1 border-border justify-center hover:bg-red cursor-pointer shadow-sm w-8 h-8 rounded-full bg-white"
+            >
+              <IoIosArrowForward
+                size={20}
+                className="hover:text-white text-[#C1B8B7]"
+              />
+            </div>
           </div>
         </div>
 
@@ -78,8 +83,8 @@ const Collection = () => {
               },
             ]}
           >
-            {COLLECTIONS.map((item) => (
-              <CollectionItem item={item} />
+            {COLLECTIONS.map((item, index) => (
+              <CollectionItem item={item} key={index} />
             ))}
           </Carousel>
         </div>
@@ -90,7 +95,7 @@ const Collection = () => {
             <span className="absolute inset-0 bg-red transform translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-500"></span>
             <span className="relative group-hover:text-white">Xem tất cả</span>
             <IoIosArrowDropright
-              size={18}
+              size={17}
               className="relative text-ascent-2 group-hover:text-white"
             />
           </button>

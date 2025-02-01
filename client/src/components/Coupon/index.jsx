@@ -1,6 +1,6 @@
-import React from "react";
-import Wrapper from "../Wrapper";
-import CouponItem from "../CouponItem";
+import React from 'react';
+import Wrapper from '../Wrapper';
+import CouponItem from '../CouponItem';
 
 const Coupon = () => {
   return (

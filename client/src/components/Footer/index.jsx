@@ -1,10 +1,10 @@
-import React, { useState } from "react";
-import TextInput from "../TextInput";
-import Button from "../Button";
-import { TiSocialFacebook } from "react-icons/ti";
-import { FaAngleDown, FaAngleUp, FaYoutube } from "react-icons/fa";
-import { CiMail } from "react-icons/ci";
-import { FOOTERS } from "~/constants";
+import React, { useState } from 'react';
+import TextInput from '../TextInput';
+import Button from '../Button';
+import { TiSocialFacebook } from 'react-icons/ti';
+import { FaAngleDown, FaAngleUp, FaYoutube } from 'react-icons/fa';
+import { CiMail } from 'react-icons/ci';
+import { FOOTERS } from '~/constants';
 
 const Footer = () => {
   const [collapse, setCollapse] = useState(false);

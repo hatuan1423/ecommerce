@@ -1,6 +1,6 @@
-import React from "react";
-import Wrapper from "../Wrapper";
-import Collection3Item from "../Collection3Item";
+import React from 'react';
+import Wrapper from '../Wrapper';
+import Collection3Item from '../Collection3Item';
 
 const Collection3 = () => {
   return (

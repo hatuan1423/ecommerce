@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 const TextInput = React.forwardRef(
   (
@@ -45,11 +45,11 @@ const TextInput = React.forwardRef(
             ref={ref}
             {...rest}
             className={`bg-secondary rounded border border-[#66666690] outline-none text-sm text-ascent-1 px-4 py-2.5 placeholder:text-[#666] 
-              ${iconLeft ? "pl-10" : ""} 
-              ${iconRight ? "pr-10" : ""} 
+              ${iconLeft ? 'pl-10' : ''} 
+              ${iconRight ? 'pr-10' : ''} 
               ${className}`}
             {...register}
-            aria-invalid={error ? "true" : "false"}
+            aria-invalid={error ? 'true' : 'false'}
           />
           {iconRight && (
             <span

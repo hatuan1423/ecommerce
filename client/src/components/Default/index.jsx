@@ -1,8 +1,8 @@
-import React from "react";
-import TopBar from "../TopBar";
-import Header from "../Header";
-import Footer from "../Footer";
-import SubHeader from "../SubHeader";
+import React from 'react';
+import TopBar from '../TopBar';
+import Header from '../Header';
+import Footer from '../Footer';
+import SubHeader from '../SubHeader';
 
 const Default = ({ children }) => {
   return (

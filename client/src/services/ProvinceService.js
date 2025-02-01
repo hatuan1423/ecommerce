@@ -1,4 +1,4 @@
-import axios from "axios"
+import axios from 'axios'
 
 export const getAllProvince = async () => {
     const res = await axios.get(`${import.meta.env.VITE_PROVINCE_API}/provinces/getAll?limit=-1`)
