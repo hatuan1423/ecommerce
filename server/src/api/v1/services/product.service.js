@@ -4,13 +4,16 @@ const { clothing, product } = require("../models/product.model")
 const { BadRequestError } = require("../core/error.response")
 
 class ProductFactory {
+    static productRegistry = {}
+
+    static registerProductType(type, classRef) {
+        ProductFactory.productRegistry[type] = classRef
+    }
+
     static async createProduct(type, payload) {
-        switch (type) {
-            case 'Clothing':
-                return new Clothing(payload).createProduct()
-            default:
-                throw new BadRequestError("Invalid product type!");
-        }
+        const productClass = ProductFactory.productRegistry[type]
+        if (!productClass) throw new BadRequestError("Invalid product type!")
+        return new productClass(payload).createProduct()
     }
 }
 
@@ -53,5 +56,7 @@ class Clothing extends Product {
         return newProduct
     }
 }
+
+ProductFactory.registerProductType('Clothing', Clothing)
 
 module.exports = ProductFactory
