@@ -20,6 +20,7 @@ const productSchema = new Schema({
     })
 
 const clothingSchema = new Schema({
+    product_shop: { type: Schema.Types.ObjectId, ref: 'Shop' },
     brand: { type: String, required: true },
     size: { type: String },
     material: { type: String }

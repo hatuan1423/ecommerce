@@ -36,16 +36,19 @@ class Product {
         this.product_attributes = product_attributes
     }
 
-    async createProduct() {
-        return await product.create(this)
+    async createProduct(product_id) {
+        return await product.create({ ...this, _id: product_id })
     }
 }
 
 class Clothing extends Product {
     async createProduct() {
-        const newClothing = await clothing.create(this.product_attributes)
+        const newClothing = await clothing.create({
+            ...this.product_attributes,
+            product_shop: this.product_shop
+        })
         if (!newClothing) throw new BadRequestError("Create new clothing err!")
-        const newProduct = await super.createProduct()
+        const newProduct = await super.createProduct(newClothing._id)
         if (!newProduct) throw new BadRequestError("Create new product err!")
         return newProduct
     }
