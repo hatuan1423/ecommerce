@@ -7,6 +7,6 @@ const { authentication } = require('../../auth/authUtils')
 const shopController = require('../../controllers/shop.controller')
 
 router.use(authentication)
-router.get('/shop', asyncHandler(shopController.getDetail))
+router.get('/:shop_id', asyncHandler(shopController.getDetail))
 
 module.exports = router

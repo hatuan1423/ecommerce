@@ -1,10 +1,10 @@
 'use strict'
 
-const { findByEmail } = require("../models/repositories/shop.repository")
+const { findShopById } = require("../models/repositories/shop.repository")
 
 class ShopService {
-    static getDetail = async (id) => {
-        return await findByEmail({ id })
+    static findShop = async ({ shop_id }) => {
+        return await findShopById({ shop_id, unSelect: ['__v', 'updatedAt', 'password'] })
     }
 }
 

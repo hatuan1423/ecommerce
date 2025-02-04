@@ -2,7 +2,8 @@
 
 const { clothing, product } = require("../models/product.model")
 const { BadRequestError } = require("../core/error.response")
-const { findAllDraftsForShop, publishProductByShop, findAllPublishForShop, searchProductByUser, findAllProducts, findProduct } = require("../models/repositories/product.repository")
+const { findAllDraftsForShop, publishProductByShop, findAllPublishForShop, searchProductByUser, findAllProducts, findProduct, updateProductById, deleteProduct } = require("../models/repositories/product.repository")
+const { removeUndefinedObject, updateNestedObjectParser } = require("../utils")
 
 class ProductFactory {
     static productRegistry = {}
@@ -15,6 +16,14 @@ class ProductFactory {
         const productClass = ProductFactory.productRegistry[type]
         if (!productClass) throw new BadRequestError("Invalid product type!")
         return new productClass(payload).createProduct()
+    }
+
+    static async updateProduct(type, product_id, payload) {
+        const productClass = ProductFactory.productRegistry[type]
+        if (!productClass) {
+            throw new BadRequestError('Invalid product types')
+        }
+        return new productClass(payload).updateProduct(product_id)
     }
 
     static async findAllDraftsForShop({ product_shop, limit = 50, skip = 0 }) {
@@ -47,8 +56,8 @@ class ProductFactory {
         return await findProduct({ product_id, unSelect: ['__v'] })
     }
 
-    static async updateProduct() {
-        return await searchProductByUser({ keySearch })
+    static async deleteProduct({ product_id }) {
+        return await deleteProduct({ product_id })
     }
 }
 
@@ -77,6 +86,10 @@ class Product {
     async createProduct(product_id) {
         return await product.create({ ...this, _id: product_id })
     }
+
+    async updateProduct(product_id, bodyUpdate) {
+        return updateProductById({ product_id, bodyUpdate, model: product })
+    }
 }
 
 class Clothing extends Product {
@@ -89,6 +102,19 @@ class Clothing extends Product {
         const newProduct = await super.createProduct(newClothing._id)
         if (!newProduct) throw new BadRequestError("Create new product err!")
         return newProduct
+    }
+
+    async updateProduct(product_id) {
+        const objectParams = removeUndefinedObject(this)
+        if (objectParams.product_attributes) {
+            await updateProductById({
+                product_id,
+                bodyUpdate: updateNestedObjectParser(objectParams.product_attributes),
+                model: clothing
+            })
+        }
+        const updateProduct = await super.updateProduct(product_id, updateNestedObjectParser(objectParams))
+        return updateProduct
     }
 }
 

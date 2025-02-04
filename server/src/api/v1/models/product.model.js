@@ -12,7 +12,7 @@ const productSchema = new Schema({
     product_slug: { type: String },
     product_price: { type: Number, required: true },
     product_quantity: { type: Number, required: true },
-    product_type: { type: String, required: true, enum: ['Electronic', 'Clothing', 'Furniture'] },
+    product_type: { type: String, required: true, enum: ['Sofa', 'Table', 'Chair', 'Bed', 'Bedding', 'Cabinet', 'Office', 'Decorate', 'Kitchen', 'Bathroom'] },
     product_shop: { type: Schema.Types.ObjectId, ref: 'Shop' },
     product_attributes: { type: Schema.Types.Mixed, required: true },
     product_ratingsAverage: {
@@ -40,17 +40,16 @@ productSchema.pre('save', function (next) {
     next()
 })
 
-const clothingSchema = new Schema({
+const sofaSchema = new Schema({
     product_shop: { type: Schema.Types.ObjectId, ref: 'Shop' },
     brand: { type: String, required: true },
-    size: { type: String },
-    material: { type: String }
+    color: { type: String }
 }, {
-    collection: 'Clothes',
+    collection: 'Sofas',
     timestamps: true
 })
 
 module.exports = {
     product: model(DOCUMENT_NAME, productSchema),
-    clothing: model('Clothing', clothingSchema)
+    sofa: model('Sofa', sofaSchema)
 }

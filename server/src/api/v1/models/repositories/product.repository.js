@@ -1,6 +1,7 @@
 'use strict'
 
 const { getSelectData, unGetSelectData } = require("../../utils")
+const historyProductModel = require("../historyProduct.model")
 const { product, clothing } = require("../product.model")
 const { Types } = require('mongoose')
 
@@ -72,9 +73,21 @@ const findProduct = async ({ product_id, unSelect }) => {
     return await product.findById(product_id).select(unGetSelectData(unSelect))
 }
 
+const updateProductById = async ({ product_id, bodyUpdate, model, isNew = true }) => {
+    return await model.findByIdAndUpdate(product_id, bodyUpdate, {
+        new: isNew
+    })
+}
+
+const deleteProduct = async ({ product_id }) => {
+}
+
+
 module.exports = {
     findProduct,
+    deleteProduct,
     findAllProducts,
+    updateProductById,
     searchProductByUser,
     findAllDraftsForShop,
     findAllPublishForShop,
