@@ -85,6 +85,16 @@ class ProductController {
             })
         }).send(res)
     }
+
+    deleteProduct = async (req, res, next) => {
+        new SuccessResponse({
+            message: "Delete product success!",
+            metadata: await ProductService.deleteProduct({
+                product_id: req.params.product_id,
+                product_shop: req.user.userId
+            })
+        }).send(res)
+    }
 }
 
 module.exports = new ProductController

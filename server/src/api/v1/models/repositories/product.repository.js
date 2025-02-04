@@ -1,9 +1,12 @@
 'use strict'
 
-const { getSelectData, unGetSelectData } = require("../../utils")
-const historyProductModel = require("../historyProduct.model")
-const { product, clothing } = require("../product.model")
+const { getSelectData, unGetSelectData, convertToObjectIdMongoDB } = require("../../utils")
+const { product } = require("../product.model")
 const { Types } = require('mongoose')
+const { findShopById } = require("./shop.repository")
+const { NotFoundError } = require("../../core/error.response")
+const historyProductModel = require("../historyProduct.model")
+const inventoryModel = require("../inventory.model")
 
 const findAllDraftsForShop = async ({ query, limit, skip }) => {
     return await queryProduct({ query, limit, skip })
@@ -79,13 +82,26 @@ const updateProductById = async ({ product_id, bodyUpdate, model, isNew = true }
     })
 }
 
-const deleteProduct = async ({ product_id }) => {
+const deleteProductById = async ({ product_id, product_shop, payload, model }) => {
+    const foundShop = await findShopById({ shop_id: product_shop })
+    if (!foundShop) throw new NotFoundError('Shop not found!')
+    if (payload) {
+        await historyProductModel.create({
+            product_name: payload.product_name,
+            product_thumb: payload.product_thumb,
+            product_description: payload.product_description,
+            product_price: payload.product_price,
+            product_quantity: payload.product_quantity,
+            product_type: payload.product_type,
+        })
+        await inventoryModel.deleteOne({ inven_productId: convertToObjectIdMongoDB(product_id) })
+    }
+    return await model.deleteOne({ _id: convertToObjectIdMongoDB(product_id) })
 }
-
 
 module.exports = {
     findProduct,
-    deleteProduct,
+    deleteProductById,
     findAllProducts,
     updateProductById,
     searchProductByUser,

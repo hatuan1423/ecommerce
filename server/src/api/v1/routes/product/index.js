@@ -13,6 +13,7 @@ router.get('/:product_id', asyncHandler(productController.getDetailProduct))
 router.use(authentication)
 
 router.post('', asyncHandler(productController.createProduct))
+router.delete('/:product_id', asyncHandler(productController.deleteProduct))
 router.patch('/:product_id', asyncHandler(productController.updateProduct))
 router.post('/publish/:id', asyncHandler(productController.publishProductByShop))
 router.post('/unpublish/:id', asyncHandler(productController.unPublishProductByShop))
