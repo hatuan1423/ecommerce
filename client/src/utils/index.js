@@ -6,5 +6,14 @@ export const convertData = ({ data }) => {
     return arr
 }
 
+export const isJsonString = (data) => {
+    try {
+        JSON.parse(data)
+    } catch (error) {
+        return false
+    }
+    return true
+}
+
 export const baseURL = import.meta.env.VITE_BASE_URL;
 

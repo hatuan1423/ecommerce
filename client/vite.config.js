@@ -6,8 +6,7 @@ import { resolve } from 'path'
 export default defineConfig({
   plugins: [react()],
   server: {
-    port: 3001,
-    open: true
+    port: 3001
   },
   resolve: {
     alias: [{ find: '~', replacement: resolve(__dirname, './src') }]

@@ -8,8 +8,10 @@ import { CgMenuLeft } from "react-icons/cg";
 import { FaAngleDown, FaAngleUp } from "react-icons/fa";
 import Login from "../Login";
 import Cart from "../Cart";
+import { useSelector } from "react-redux";
 
 const Header = () => {
+  const shop = useSelector((state) => state?.shop);
   const [openDrawer, setOpenDrawer] = useState(false);
   const [openLogin, setOpenLogin] = useState(false);
   const handleOpenDrawer = () => setOpenDrawer(!openDrawer);
@@ -176,10 +178,21 @@ const Header = () => {
                   <path d="M896 1024h-819.2c-42.347 0-76.8-34.451-76.8-76.8 0-3.485 0.712-86.285 62.72-168.96 36.094-48.126 85.514-86.36 146.883-113.634 74.957-33.314 168.085-50.206 276.797-50.206 108.71 0 201.838 16.893 276.797 50.206 61.37 27.275 110.789 65.507 146.883 113.634 62.008 82.675 62.72 165.475 62.72 168.96 0 42.349-34.451 76.8-76.8 76.8zM486.4 665.6c-178.52 0-310.267 48.789-381 141.093-53.011 69.174-54.195 139.904-54.2 140.61 0 14.013 11.485 25.498 25.6 25.498h819.2c14.115 0 25.6-11.485 25.6-25.6-0.006-0.603-1.189-71.333-54.198-140.507-70.734-92.304-202.483-141.093-381.002-141.093z"></path>
                 </svg>
               </span>
-              <div className="w-full md:hidden lg:flex flex-col hidden">
-                <span className="text-white text-sm ">Đăng nhập / Đăng ký</span>
-                <span className="text-white text-sm">Tài khoản của tôi</span>
-              </div>
+              {shop?.token ? (
+                <div className="w-full md:hidden lg:flex flex-col hidden">
+                  <span className="text-white text-sm ">Tài khoản của</span>
+                  <span className="text-white text-sm">
+                    {`${shop?.firstName} ${shop?.lastName}`}
+                  </span>
+                </div>
+              ) : (
+                <div className="w-full md:hidden lg:flex flex-col hidden">
+                  <span className="text-white text-sm ">
+                    Đăng nhập / Đăng ký
+                  </span>
+                  <span className="text-white text-sm">Tài khoản của tôi</span>
+                </div>
+              )}
             </div>
           </Popover>
 

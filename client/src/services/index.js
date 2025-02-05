@@ -1,26 +1,49 @@
 import { notification } from 'antd';
 import axios from 'axios'
+import { jwtDecode } from 'jwt-decode';
 import { baseURL } from '~/utils';
 
 export const instance = axios.create({
     baseURL: baseURL,
     headers: {
         'Content-Type': 'application/json',
-        'x-api-key': 'pass'
+        'x-api-key': import.meta.env.VITE_X_API_KEY
     },
 });
 
-instance.interceptors.request.use(function (config) {
-    const token = localStorage.getItem('token');
-    if (token) {
-        config.headers.authorization = token
+const handleDecoded = () => {
+    try {
+        const token = localStorage.getItem('token');
+        if (token) {
+            const decoded = jwtDecode(token);
+            return decoded;
+        }
+    } catch (error) {
+        console.error('Token decode error:', error);
     }
-    return config;
-});
+    return null;
+};
+
+instance.interceptors.request.use(
+    async (config) => {
+        const token = localStorage.getItem('token');
+        const decoded = handleDecoded();
+
+        if (token) {
+            config.headers.authorization = token
+        }
+        if (decoded?.userId) {
+            config.headers['x-client-id'] = decoded?.userId;
+        }
+        return config;
+    },
+    (error) => {
+        return Promise.reject(error);
+    });
 
 instance.interceptors.response.use(
     (response) => {
-        return response.data.data;
+        return response.data;
     },
     (error) => {
         notification.error({

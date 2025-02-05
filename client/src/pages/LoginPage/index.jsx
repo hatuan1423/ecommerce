@@ -1,18 +1,29 @@
 import { Spin } from "antd";
+import { jwtDecode } from "jwt-decode";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { IoMdEye, IoMdEyeOff } from "react-icons/io";
+import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import Button from "~/components/Button";
 import TextInput from "~/components/TextInput";
 import Wrapper from "~/components/Wrapper";
-import useLogin from "~/hooks/useLogin";
+import { useMutationHook } from "~/hooks/useMutationHook";
+import { login } from "~/redux/Slices/shopSlice";
+import * as AccessService from "~/services/AccessService";
+import * as ShopService from "~/services/ShopService";
 
 const Login = () => {
   const [forgotPass, setForgotPass] = useState(false);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const [hide, setHide] = useState("hide");
-  const { login, isPendingLogin, isSuccessLogin } = useLogin();
+  const mutation = useMutationHook((data) => AccessService.login(data));
+  const {
+    data,
+    isPending: isPendingLogin,
+    isSuccess: isSuccessLogin,
+  } = mutation;
   const {
     handleSubmit,
     register,
@@ -20,14 +31,31 @@ const Login = () => {
   } = useForm({ mode: "onChange" });
 
   const onSubmitLogin = (data) => {
-    login(data);
+    mutation.mutate(data);
   };
 
   useEffect(() => {
     if (isSuccessLogin) {
       navigate("/");
     }
+    const token = data?.metadata?.tokens?.accessToken;
+    localStorage.setItem("token", token);
+    if (token) {
+      const { userId } = jwtDecode(token);
+      if (userId) {
+        handleGetDetailUser({ userId, token });
+      }
+    }
   }, [isSuccessLogin]);
+
+  const handleGetDetailUser = async ({ userId, token }) => {
+    try {
+      const res = await ShopService.getDetail({ shopId: userId });
+      dispatch(login({ ...res?.metadata, token }));
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   const onSubmitForgotPass = (data) => {};
 
