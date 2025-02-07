@@ -97,30 +97,17 @@ class AccessService {
     }) => {
         const { userId, email } = user
 
-        //Check token is used
         if (keyStore.refreshTokensUsed.includes(refreshToken)) {
             await KeyTokenService.deleteKeyById(foundToken.user)
             throw new ForbiddenError('Something wrong happen! Please relogin')
         }
 
-        //Check refresh token in model & user is equal
-        if (keyStore.refreshToken !== refreshToken) {
-            console.log(keyStore.refreshToken)
-            console.log(refreshToken)
-
-            throw new UnauthorizedError('Shop not registered!')
-        }
-
-        //Found shop
+        if (keyStore.refreshToken !== refreshToken) throw new UnauthorizedError('Shop not registered!')
         const foundShop = await findByEmail({ email })
-        if (!foundShop) {
-            throw new UnauthorizedError('Shop not registered')
-        }
+        if (!foundShop) throw new UnauthorizedError('Shop not registered')
 
-        // Generate new token
         const tokens = await createTokenPair({ userId, email }, keyStore.publicKey, keyStore.privateKey)
 
-        // Update token
         await keyTokenModel.findByIdAndUpdate(keyStore._id, {
             $set: {
                 refreshToken: tokens.refreshToken,

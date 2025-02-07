@@ -11,7 +11,7 @@ const KeyTokenService = require("../services/keyToken.service")
 const createTokenPair = async (payload, publicKey, privateKey) => {
     try {
         const accessToken = await jwt.sign(payload, publicKey, {
-            expiresIn: '2 days'
+            expiresIn: '15s'
         })
         const refreshToken = await jwt.sign(payload, privateKey, {
             expiresIn: '7 days'
@@ -62,13 +62,29 @@ const authentication = asyncHandler(async (req, res, next) => {
     if (!keyStore) {
         throw new NotFoundError('Key store invalid')
     }
-    if (req.headers[HEADER.REFRESH_TOKEN]) {
+    // if (req.headers[HEADER.REFRESH_TOKEN]) {
+    //     try {
+    //         const refreshToken = req.headers[HEADER.REFRESH_TOKEN]
+    //         const decodeUser = jwt.verify(refreshToken, keyStore.privateKey)
+    //         if (userId !== decodeUser.userId) {
+    //             throw new AuthFailureError("Invalid user id")
+    //         }
+
+    //         req.keyStore = keyStore
+    //         req.user = decodeUser
+    //         req.refreshToken = refreshToken
+
+    //         return next()
+    //     } catch (error) {
+    //         throw error
+    //     }
+    // }
+
+    if (req.cookies.refreshToken) {
         try {
-            const refreshToken = req.headers[HEADER.REFRESH_TOKEN]
+            const refreshToken = req.cookies.refreshToken
             const decodeUser = jwt.verify(refreshToken, keyStore.privateKey)
-            if (userId !== decodeUser.userId) {
-                throw new AuthFailureError("Invalid user id")
-            }
+            if (userId !== decodeUser.userId) throw new AuthFailureError("Invalid user id")
 
             req.keyStore = keyStore
             req.user = decodeUser
@@ -84,7 +100,6 @@ const authentication = asyncHandler(async (req, res, next) => {
     if (!accessToken) {
         throw new AuthFailureError('Access token invalid')
     }
-    //decode
     try {
         const decodeUser = jwt.verify(accessToken, keyStore.publicKey)
         if (userId !== decodeUser.userId) {
