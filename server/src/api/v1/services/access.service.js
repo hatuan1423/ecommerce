@@ -99,7 +99,7 @@ class AccessService {
 
         if (keyStore.refreshTokensUsed.includes(refreshToken)) {
             await KeyTokenService.deleteKeyById(foundToken.user)
-            throw new ForbiddenError('Something wrong happen! Please relogin')
+            throw new ForbiddenError('Something wrong happen! Please re login')
         }
 
         if (keyStore.refreshToken !== refreshToken) throw new UnauthorizedError('Shop not registered!')

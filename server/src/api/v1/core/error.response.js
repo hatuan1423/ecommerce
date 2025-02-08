@@ -46,11 +46,18 @@ class ValidationError extends ErrorResponse {
     }
 }
 
+class GoneError extends ErrorResponse {
+    constructor(message = ReasonPhrases.GONE, statusCode = StatusCodes.GONE) {
+        super(message, statusCode)
+    }
+}
+
 module.exports = {
     ConflictRequestError,
     BadRequestError,
     NotFoundError,
     ForbiddenError,
     UnauthorizedError,
-    ValidationError
+    ValidationError,
+    GoneError
 }

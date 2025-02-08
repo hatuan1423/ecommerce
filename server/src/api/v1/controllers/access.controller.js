@@ -2,11 +2,12 @@
 
 const AccessService = require("../services/access.service")
 const { CREATED, SuccessResponse } = require("../core/success.response")
+const ms = require("ms")
 
 class AccessController {
     signUp = async (req, res, next) => {
         new CREATED({
-            message: "Registered OK!",
+            message: "Registered success!",
             metadata: await AccessService.signUp(req.body)
         }).send(res)
     }
@@ -15,29 +16,38 @@ class AccessController {
         const { tokens } = data
         res.cookie('refreshToken', tokens.refreshToken, {
             httpOnly: true,
-            secure: false,
-            sameSite: 'strict',
-            maxAge: 7 * 24 * 60 * 60 * 1000
+            secure: true,
+            sameSite: 'None',
+            maxAge: ms('14 days'),
         })
         new SuccessResponse({
-            message: "Login OK!",
+            message: "Login success!",
             metadata: data
         }).send(res)
     }
     logout = async (req, res, next) => {
+        res.clearCookie('refreshToken');
         new SuccessResponse({
-            message: "Logout OK!",
+            message: "Logout success!",
             metadata: await AccessService.logout(req.keyStore)
         }).send(res)
     }
     handleRefreshToken = async (req, res, next) => {
+        const data = await AccessService.handleRefreshToken({
+            refreshToken: req.refreshToken,
+            user: req.user,
+            keyStore: req.keyStore
+        })
+        const { tokens } = data
+        res.cookie('refresh', tokens.refreshToken, {
+            httpOnly: true,
+            secure: true,
+            sameSite: 'None',
+            maxAge: ms('14 days'),
+        })
         new SuccessResponse({
-            message: "Get token OK!",
-            metadata: await AccessService.handleRefreshToken({
-                refreshToken: req.refreshToken,
-                user: req.user,
-                keyStore: req.keyStore
-            })
+            message: "Get token success!",
+            metadata: data
         }).send(res)
     }
 }

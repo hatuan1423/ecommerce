@@ -30,7 +30,6 @@ class KeyTokenService {
     }
 
     static findByRefreshToken = async (refreshToken) => {
-        console.log(refreshToken)
         return await keyTokenModel.findOne({ refreshToken }).lean()
     }
 
