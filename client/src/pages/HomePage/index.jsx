@@ -1,4 +1,3 @@
-import { useSelector } from "react-redux";
 import Banner from "~/components/Banner";
 import Blog from "~/components/Blog";
 import Categorize from "~/components/Categorize";
@@ -11,8 +10,6 @@ import Coupon from "~/components/Coupon";
 import Slider from "~/components/Slider";
 
 const HomePage = () => {
-  const shop = useSelector((state) => state?.shop);
-  console.log(shop);
   return (
     <div className="w-full">
       <Slider />

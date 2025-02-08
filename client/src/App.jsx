@@ -9,7 +9,6 @@ import Default from "./components/Default";
 import React, { Fragment, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import * as ShopService from "~/services/ShopService";
-import { isJsonString } from "./utils";
 import { login } from "./redux/Slices/shopSlice";
 import { jwtDecode } from "jwt-decode";
 
@@ -17,6 +16,7 @@ function App() {
   const theme = useSelector((state) => state.theme.theme);
   const location = useLocation();
   const dispatch = useDispatch();
+  const shop = useSelector((state) => state?.shop);
 
   const handleDecoded = () => {
     try {
@@ -28,7 +28,7 @@ function App() {
     } catch (error) {
       console.error("Token decode error:", error);
     }
-    return null;
+    return { decoded: null, token: null };
   };
 
   useEffect(() => {
@@ -36,7 +36,7 @@ function App() {
     if (decoded?.userId) {
       handleGetDetailUser({ userId: decoded?.userId, token });
     }
-  }, []);
+  }, [shop]);
 
   const handleGetDetailUser = async ({ userId, token }) => {
     try {

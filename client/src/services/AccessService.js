@@ -1,5 +1,6 @@
 import { baseURL } from '~/utils';
-import { instance } from '.';
+import instance from '.';
+import axios from 'axios';
 
 export const signup = async (data) => {
     const res = await instance.post(`${baseURL}/shop/signup`, data);
@@ -7,6 +8,15 @@ export const signup = async (data) => {
 };
 
 export const login = async (data) => {
-    const res = await instance.post(`${baseURL}/shop/login`, data)
+    const res = await instance.post(`${baseURL}/shop/login`, data, {
+        withCredentials: true
+    })
+    return res
+}
+
+export const refreshToken = async () => {
+    const res = await instance.post(`${baseURL}/shop/refreshToken`, {}, {
+        withCredentials: true
+    })
     return res
 }
