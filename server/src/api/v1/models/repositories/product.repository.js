@@ -103,10 +103,24 @@ const deleteProductById = async ({ product_id, product_shop, payload, model }) =
     return await model.deleteOne({ _id: convertToObjectIdMongoDB(product_id) })
 }
 
+const checkProductByServer = async (products) => {
+    return await Promise.all(products.map(async product => {
+        const foundProduct = await getProductById(product.productId)
+        if (foundProduct) {
+            return {
+                price: foundProduct.product_price,
+                quantity: foundProduct.product_quantity,
+                productId: foundProduct.productId,
+            }
+        }
+    }))
+}
+
 module.exports = {
     findProduct,
     getProductById,
     deleteProductById,
+    checkProductByServer,
     findAllProducts,
     updateProductById,
     searchProductByUser,
