@@ -49,9 +49,7 @@ const validateSignup = [
         .withMessage("Password must be at least 6 characters long!"),
     (req, res, next) => {
         const errors = validationResult(req)
-        if (!errors.isEmpty()) {
-            throw new ValidationError(errors.array());
-        }
+        if (!errors.isEmpty()) throw new ValidationError(errors.array());
         next();
     }
 ]
@@ -72,9 +70,7 @@ const validateLogin = [
         .withMessage("Password is required!"),
     (req, res, next) => {
         const errors = validationResult(req);
-        if (!errors.isEmpty()) {
-            throw new ValidationError(errors.array());
-        }
+        if (!errors.isEmpty()) throw new ValidationError(errors.array());
         next();
     }
 ];

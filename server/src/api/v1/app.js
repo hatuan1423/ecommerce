@@ -8,8 +8,6 @@ const app = express()
 const cookieParser = require("cookie-parser")
 const corsOptions = require('../v1/configs/config.cors')
 
-
-//init middleware
 app.use(morgan('dev'))
 app.use(helmet())
 app.use(compression())

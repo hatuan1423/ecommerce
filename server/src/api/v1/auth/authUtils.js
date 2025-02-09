@@ -11,7 +11,7 @@ const KeyTokenService = require("../services/keyToken.service")
 const createTokenPair = async (payload, publicKey, privateKey) => {
     try {
         const accessToken = await jwt.sign(payload, publicKey, {
-            expiresIn: '5s'
+            expiresIn: '2 days'
         })
         const refreshToken = await jwt.sign(payload, privateKey, {
             expiresIn: '7 days'
@@ -63,12 +63,12 @@ const authentication = asyncHandler(async (req, res, next) => {
 
             return next()
         } catch (error) {
-            throw new GoneError("Refresh token expired!")
+            throw new GoneError("Unauthorized error!")
         }
     }
 
     const accessToken = req.headers[HEADER.AUTHORIZATION]
-    if (!accessToken) throw new UnauthorizedError('Access token invalid')
+    if (!accessToken) throw new UnauthorizedError('Unauthorized error!')
     try {
         const decodeUser = jwt.verify(accessToken, keyStore.publicKey)
         if (userId !== decodeUser.userId) throw new UnauthorizedError("Invalid user id")
@@ -76,7 +76,7 @@ const authentication = asyncHandler(async (req, res, next) => {
         req.user = decodeUser
         return next()
     } catch (error) {
-        throw new GoneError("Access token expired!")
+        throw new GoneError("Unauthorized error!")
     }
 })
 
