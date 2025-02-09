@@ -1,7 +1,6 @@
 'use strict'
 
 const { CREATED, SuccessResponse } = require("../core/success.response")
-const ms = require("ms")
 const DiscountService = require("../services/discount.service")
 
 class DiscountController {
@@ -15,7 +14,7 @@ class DiscountController {
         }).send(res)
     }
     getAllDiscountCodes = async (req, res, next) => {
-        new CREATED({
+        new SuccessResponse({
             message: "Get all discounts code success!",
             metadata: await DiscountService.getAllDiscountCodesByShop({
                 ...req.query,
@@ -24,7 +23,7 @@ class DiscountController {
         }).send(res)
     }
     getDiscountAmount = async (req, res, next) => {
-        new CREATED({
+        new SuccessResponse({
             message: "Get discount amount success!",
             metadata: await DiscountService.getDiscountAmount({
                 ...req.body,
@@ -32,7 +31,7 @@ class DiscountController {
         }).send(res)
     }
     getAllDiscountCodesWithProduct = async (req, res, next) => {
-        new CREATED({
+        new SuccessResponse({
             message: "Get all discounts code with products success!",
             metadata: await DiscountService.getAllDiscountCodesWithProduct({
                 ...req.query
@@ -40,7 +39,7 @@ class DiscountController {
         }).send(res)
     }
     cancelDiscount = async (req, res, next) => {
-        new CREATED({
+        new SuccessResponse({
             message: "Cancel discount success!",
             metadata: await DiscountService.cancelDiscountCode({
                 ...req.body

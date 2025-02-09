@@ -76,6 +76,10 @@ const findProduct = async ({ product_id, unSelect }) => {
     return await product.findById(product_id).select(unGetSelectData(unSelect))
 }
 
+const getProductById = async (productId) => {
+    return await product.findById({ _id: convertToObjectIdMongoDB(productId) }).lean()
+}
+
 const updateProductById = async ({ product_id, bodyUpdate, model, isNew = true }) => {
     return await model.findByIdAndUpdate(product_id, bodyUpdate, {
         new: isNew
@@ -101,6 +105,7 @@ const deleteProductById = async ({ product_id, product_shop, payload, model }) =
 
 module.exports = {
     findProduct,
+    getProductById,
     deleteProductById,
     findAllProducts,
     updateProductById,
