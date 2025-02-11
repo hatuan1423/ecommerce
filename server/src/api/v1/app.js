@@ -6,7 +6,7 @@ const morgan = require('morgan')
 const cors = require('cors')
 const app = express()
 const cookieParser = require("cookie-parser")
-const corsOptions = require('../v1/configs/config.cors')
+const corsOptions = require('../v1/configs/cors.config')
 
 app.use(morgan('dev'))
 app.use(helmet())
