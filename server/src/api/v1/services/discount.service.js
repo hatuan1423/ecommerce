@@ -1,10 +1,10 @@
 'use strict'
 
-const { findDiscount, findAllDiscountCodesUnSelect } = require("../models/repositories/discount.repository")
+const { findDiscount, findAllDiscountCodesUnSelect, updateDiscount } = require("../models/repositories/discount.repository")
 const { BadRequestError, NotFoundError } = require("../core/error.response")
 const { findAllProducts } = require("../models/repositories/product.repository")
 const discount = require("../models/discount.model")
-const { convertToObjectIdMongoDB } = require("../utils")
+const { convertToObjectIdMongoDB, removeUndefinedObject } = require("../utils")
 
 class DiscountService {
     static async createDiscountCode(payload) {
@@ -169,10 +169,16 @@ class DiscountService {
         return result
     }
 
-    static async updateDiscount() {
-
+    static async updateDiscount(discountId, bodyUpdate) {
+        const foundDiscount = await findDiscount({
+            filter: {
+                _id: discountId
+            }
+        })
+        if (!foundDiscount) throw new NotFoundError("Discount not existed!")
+        const newBodyUpdate = removeUndefinedObject(bodyUpdate)
+        return await updateDiscount({ query: { _id: discountId }, bodyUpdate: newBodyUpdate })
     }
-
 }
 
 module.exports = DiscountService

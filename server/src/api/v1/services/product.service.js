@@ -10,7 +10,8 @@ const {
     findAllProducts,
     findProduct,
     updateProductById,
-    deleteProductById
+    deleteProductById,
+    getAllTypeProduct
 } = require("../models/repositories/product.repository")
 const { removeUndefinedObject, updateNestedObjectParser } = require("../utils")
 const { insertInventory } = require("../models/repositories/inventory.repository")
@@ -149,6 +150,10 @@ class ProductFactory {
 
     static async searchProduct({ keySearch }) {
         return await searchProductByUser({ keySearch })
+    }
+
+    static async getTypesProduct() {
+        return await getAllTypeProduct()
     }
 
     static async findAllProducts({ limit = 50, sort = 'ctime', page = 1, filter = { isPublished: true } }) {

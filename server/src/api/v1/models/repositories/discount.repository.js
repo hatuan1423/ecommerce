@@ -7,6 +7,12 @@ const findDiscount = async ({ filter }) => {
     return await discount.findOne(filter).lean()
 }
 
+const updateDiscount = async ({ query, bodyUpdate, isNew = true }) => {
+    return await discount.findByIdAndUpdate(query, bodyUpdate, {
+        new: isNew
+    })
+}
+
 const findAllDiscountCodesUnSelect = async ({
     limit = 50, page = 1, sort = 'ctime', filter, unSelect
 }) => {
@@ -36,6 +42,7 @@ const findAllDiscountCodesSelect = async ({
 }
 
 module.exports = {
+    updateDiscount,
     findDiscount,
     findAllDiscountCodesUnSelect,
     findAllDiscountCodesSelect

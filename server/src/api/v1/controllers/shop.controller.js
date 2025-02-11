@@ -8,7 +8,10 @@ class ShopController {
     getDetail = async (req, res, next) => {
         new SuccessResponse({
             message: "Get detail shop success!",
-            metadata: await ShopService.findShop({ shop_id: req.params.shop_id })
+            metadata: await ShopService.findShop({
+                shop_id: req.params.shop_id,
+                device_id: req.headers['user-agent']
+            })
         }).send(res)
     }
 }

@@ -6,6 +6,7 @@ const KeyTokenService = require("./keyToken.service")
 const { createTokenPair, createKeyPair, verifyJWT } = require("../auth/authUtils")
 const { getInfoData } = require("../utils")
 const { ROLE_SHOP } = require("../constants")
+const shopSession = require("../models/shopSession.model")
 const { BadRequestError, UnauthorizedError, ForbiddenError } = require("../core/error.response")
 const keyTokenModel = require("../models/keyToken.model")
 const { findByEmail } = require("../models/repositories/shop.repository")
@@ -53,7 +54,7 @@ class AccessService {
         }
     }
 
-    static login = async ({ email, password, refreshToken = null }) => {
+    static login = async ({ email, password, refreshToken = null, device_id }) => {
         const foundShop = await findByEmail({ email })
         if (!foundShop) {
             throw new BadRequestError("Shop not registered!")
@@ -77,16 +78,34 @@ class AccessService {
             privateKey,
             publicKey
         })
+
+        let resShop = getInfoData({
+            fields: ['_id', 'email'],
+            object: foundShop
+        })
+        let currentShopSession = await shopSession.findOne({ shop_id: foundShop._id, device_id })
+        if (!currentShopSession) {
+            currentShopSession = await shopSession.create({
+                shop_id: foundShop._id,
+                device_id,
+                is_2fa_required: false,
+                last_login: new Date().valueOf()
+            })
+        }
+        resShop['is_2fa_required'] = currentShopSession.is_2fa_required
+        resShop['last_login'] = currentShopSession.last_login
+
         return {
-            shop: getInfoData({
-                fields: ['_id', 'email'],
-                object: foundShop
-            }),
+            shop: resShop,
             tokens
         }
     }
 
-    static logout = async (keyStore) => {
+    static logout = async ({ keyStore, shop_id, device_id }) => {
+        await shopSession.deleteMany({
+            shop_id,
+            device_id
+        })
         return await KeyTokenService.removeKeyById(keyStore._id)
     }
 

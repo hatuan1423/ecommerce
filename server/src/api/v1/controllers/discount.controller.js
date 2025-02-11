@@ -46,6 +46,14 @@ class DiscountController {
             })
         }).send(res)
     }
+    updateDiscount = async (req, res, next) => {
+        new SuccessResponse({
+            message: "Update discount success!",
+            metadata: await DiscountService.updateDiscount(req.params.discount_id, {
+                ...req.body
+            })
+        }).send(res)
+    }
 }
 
 module.exports = new DiscountController

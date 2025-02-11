@@ -95,6 +95,13 @@ class ProductController {
             })
         }).send(res)
     }
+
+    getAllTypeProduct = async (req, res, next) => {
+        new SuccessResponse({
+            message: "Get all type product success!",
+            metadata: await ProductService.getTypesProduct()
+        }).send(res)
+    }
 }
 
 module.exports = new ProductController

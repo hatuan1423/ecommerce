@@ -12,7 +12,10 @@ const ROLE_SHOP = {
     ADMIN: 'ADMIN'
 }
 
+const NAME_SERVICE_2FA = process.env.NAME_SERVICE_2FA || 'E-commerce'
+
 module.exports = {
     HEADER,
-    ROLE_SHOP
+    ROLE_SHOP,
+    NAME_SERVICE_2FA
 }

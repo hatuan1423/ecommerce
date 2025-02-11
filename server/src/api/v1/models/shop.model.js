@@ -13,6 +13,7 @@ const shopSchema = new Schema({
     password: { type: String, required: true },
     status: { type: String, enum: ['active', 'inactive'], default: 'inactive' },
     verify: { type: Schema.Types.Boolean, default: false },
+    required_2fa: { type: Schema.Types.Boolean, default: false },
     roles: { type: Array, default: [] }
 },
     {

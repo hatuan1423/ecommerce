@@ -29,7 +29,11 @@ class AccessController {
         res.clearCookie('refreshToken');
         new SuccessResponse({
             message: "Logout success!",
-            metadata: await AccessService.logout(req.keyStore)
+            metadata: await AccessService.logout({
+                keyStore: req.keyStore,
+                shop_id: req.user.userId,
+                device_id: req.headers['user-agent']
+            })
         }).send(res)
     }
     handleRefreshToken = async (req, res, next) => {

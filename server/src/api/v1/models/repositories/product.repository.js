@@ -1,6 +1,6 @@
 'use strict'
 
-const { getSelectData, unGetSelectData, convertToObjectIdMongoDB } = require("../../utils")
+const { getSelectData, unGetSelectData, convertToObjectIdMongoDB, getDataNestedObject } = require("../../utils")
 const { product } = require("../product.model")
 const { Types } = require('mongoose')
 const { findShopById } = require("./shop.repository")
@@ -72,6 +72,11 @@ const findAllProducts = async ({ limit, sort, page, filter, select }) => {
     return products
 }
 
+const getAllTypeProduct = async () => {
+    const types = await product.find()
+    return getDataNestedObject(types)
+}
+
 const findProduct = async ({ product_id, unSelect }) => {
     return await product.findById(product_id).select(unGetSelectData(unSelect))
 }
@@ -120,6 +125,7 @@ module.exports = {
     findProduct,
     getProductById,
     deleteProductById,
+    getAllTypeProduct,
     checkProductByServer,
     findAllProducts,
     updateProductById,
