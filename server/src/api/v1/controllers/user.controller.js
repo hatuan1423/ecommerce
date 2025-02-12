@@ -11,8 +11,13 @@ class UserController {
         }).send(res)
     }
 
-    checkRegisterEmailToken = async () => {
-
+    checkRegisterEmailToken = async (req, res, next) => {
+        new SuccessResponse({
+            message: "Login user success!",
+            metadata: await UserService.checkLoginEmailToken({
+                ...req.query
+            })
+        }).send(res)
     }
 }
 

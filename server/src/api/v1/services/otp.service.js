@@ -1,3 +1,4 @@
+const { NotFoundError } = require("../core/error.response")
 const otp = require("../models/otp.model")
 const { randomInt } = require("crypto")
 
@@ -16,6 +17,12 @@ class OtpService {
         return newToken
     }
 
+    static async checkEmailToken({ token }) {
+        const foundToken = await otp.findOne({ otp_token: token })
+        if (!foundToken) throw new NotFoundError('Token not found!')
+        await otp.deleteOne({ otp_token: token })
+        return foundToken
+    }
 }
 
 module.exports = OtpService
