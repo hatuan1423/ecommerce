@@ -1,5 +1,3 @@
-'use strict'
-
 const { HEADER } = require("../constants")
 const { findById } = require("../services/apiKey.service")
 const { ForbiddenError } = require("../core/error.response")

@@ -1,6 +1,3 @@
-'use strict'
-
-
 const { SuccessResponse } = require("../core/success.response")
 const UploadService = require("../services/upload.service")
 const { BadRequestError } = require("../core/error.response")

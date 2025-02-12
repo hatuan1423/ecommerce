@@ -1,5 +1,3 @@
-'use strict'
-
 const prod = {
     app: {
         port: process.env.PROD_APP_PORT || 3000

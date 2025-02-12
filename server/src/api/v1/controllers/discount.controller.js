@@ -1,5 +1,3 @@
-'use strict'
-
 const { CREATED, SuccessResponse } = require("../core/success.response")
 const DiscountService = require("../services/discount.service")
 

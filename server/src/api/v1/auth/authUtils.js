@@ -1,5 +1,3 @@
-'use strict'
-
 const jwt = require("jsonwebtoken")
 const crypto = require("crypto")
 const asyncHandler = require("../helpers/asyncHandler")
