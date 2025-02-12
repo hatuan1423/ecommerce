@@ -41,35 +41,19 @@ const updateNestedObjectParser = obj => {
     return final
 }
 
-const getDataNestedObject = obj => {
-    const final = {}
-
-    Object.keys(obj).forEach(key => {
-        console.log(obj)
-        // if (typeof obj[key] === 'Object') {
-
-        //     Object.keys(res).forEach(k => {
-        //         final[`${key}.${k}`] = res[k]
-        //     })
-        // } 
-
-        // if (typeof obj[key] === 'Object' && !Array.isArray(obj[key])) {
-        //     const res = updateNestedObjectParser(obj[key])
-        //     Object.keys(res).forEach(k => {
-        //         final[`${key}.${k}`] = res[k]
-        //     })
-        // } else {
-        //     final[key] = obj[key]
-        // }
+const replacePlaceholder = (template, params) => {
+    Object.keys(params).forEach(k => {
+        const placeholder = `{{${k}}}`
+        template = template.replace(new RegExp(placeholder, 'g'), params[k])
     })
-    return final
+    return template
 }
 
 module.exports = {
     getInfoData,
     getSelectData,
     unGetSelectData,
-    getDataNestedObject,
+    replacePlaceholder,
     removeUndefinedObject,
     updateNestedObjectParser,
     convertToObjectIdMongoDB
