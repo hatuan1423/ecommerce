@@ -52,7 +52,7 @@ A brief description of your project. For example:
 ## 📸 Demo Images
 
 > Add illustrative images of your project interface here.
-> ![Login](/client/public/home.jpg)
+> ![Login](/client/public/home.png)
 
 ## ⚡ Installation & Setup
 
