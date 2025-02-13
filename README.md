@@ -1,25 +1,23 @@
 # Ecommerce Project
 
-![Project Demo](path/to/demo-image.png)
+## 📌 Introduction
 
-## 📌 Giới thiệu
+A brief description of your project. For example:
 
-Mô tả ngắn gọn về dự án của bạn. Ví dụ:
+> This is an e-commerce project built with React for the frontend and Node.js for the backend. The project supports features such as product management, shopping cart, checkout, and user authentication.
 
-> Đây là một dự án thương mại điện tử được xây dựng bằng React cho frontend và Node.js cho backend. Dự án hỗ trợ các chức năng như quản lý sản phẩm, giỏ hàng, thanh toán và xác thực người dùng.
+## 🚀 Technologies Used
 
-## 🚀 Công nghệ sử dụng
-
-- **Frontend:** React, Vite, Tailwind CSS, Ant Design
+- **Frontend:** ReactJS, Tailwind CSS, Ant Design
 - **Backend:** Node.js, Express, MongoDB
-- **Authentication:** JSON Web Tokens (JWT)
-- **State Management:** React Query, Redux
+- **Authentication:** JSON Web Tokens (JWT), 2FA, OTP
+- **State Management:** React Query, Redux Toolkit
 
-## 📂 Cấu trúc thư mục
+## 📂 Project Structure
 
 ```bash
 /ecommerce-project
-├── frontend
+├── client
 │   ├── src
 │   │   ├── components
 │   │   ├── pages
@@ -31,7 +29,7 @@ Mô tả ngắn gọn về dự án của bạn. Ví dụ:
 │   │   ├── main.tsx
 │   ├── public
 │   ├── package.json
-├── backend
+├── server
 │   ├── src
 │   │   ├── controllers
 │   │   ├── models
@@ -43,29 +41,29 @@ Mô tả ngắn gọn về dự án của bạn. Ví dụ:
 ├── README.md
 ```
 
-## 🌟 Các tính năng chính
+## 🌟 Key Features
 
-- Đăng ký/Đăng nhập người dùng
-- Quản lý sản phẩm
-- Giỏ hàng và thanh toán
-- Lọc và tìm kiếm sản phẩm
-- Quản trị viên quản lý đơn hàng
+- User Registration/Login
+- Product Management
+- Shopping Cart & Checkout
+- Product Filtering & Search
+- Admin Order Management
 
-## 📸 Hình ảnh demo
+## 📸 Demo Images
 
-> Thêm hình ảnh minh họa về giao diện dự án ở đây.
-> ![Login](/client/public/wallpaper1.jpg)
+> Add illustrative images of your project interface here.
+> ![Login](/client/public/home.jpg)
 
-## ⚡ Cách cài đặt và chạy dự án
+## ⚡ Installation & Setup
 
-### 1️⃣ Clone Repository
+### 1️⃣ Clone the Repository
 
 ```bash
 git clone https://github.com/your-repo/ecommerce-project.git
 cd ecommerce-project
 ```
 
-### 2️⃣ Cài đặt Dependencies
+### 2️⃣ Install Dependencies
 
 #### Frontend
 
@@ -81,7 +79,7 @@ cd backend
 npm install
 ```
 
-### 3️⃣ Chạy dự án
+### 3️⃣ Run the Project
 
 #### Frontend
 
@@ -95,9 +93,9 @@ npm run dev
 npm start
 ```
 
-## 📌 Môi trường
+## 📌 Environment Setup
 
-Tạo file `.env` trong thư mục backend với nội dung:
+Create a `.env` file in the backend directory with the following content:
 
 ```env
 PORT=5000
@@ -105,11 +103,11 @@ MONGO_URI=your-mongodb-uri
 JWT_SECRET=your-secret-key
 ```
 
-## 📜 Giấy phép
+## 📜 License
 
-Dự án này được phát hành theo [MIT License](LICENSE).
+This project is released under the [MIT License](LICENSE).
 
-## 📬 Liên hệ
+## 📬 Contact
 
 - **Email:** your.email@example.com
 - **GitHub:** [your-username](https://github.com/your-username)

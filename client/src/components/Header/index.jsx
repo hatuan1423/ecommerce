@@ -9,6 +9,7 @@ import { FaAngleDown, FaAngleUp } from "react-icons/fa";
 import Login from "../Login";
 import Cart from "../Cart";
 import { useSelector } from "react-redux";
+import AccountDetail from "../AccountDetail";
 
 const Header = () => {
   const shop = useSelector((state) => state?.shop);
@@ -165,7 +166,7 @@ const Header = () => {
         {/* 3 */}
         <div className="flex items-center gap-x-2 justify-between">
           <Popover
-            content={<Login />}
+            content={shop?.token ? <AccountDetail /> : <Login />}
             placement="bottomRight"
             trigger="click"
             open={openLogin}
