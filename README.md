@@ -1,47 +1,16 @@
-# Ecommerce Project
+# E-commerce
 
-## 📌 Introduction
+## Introduction
 
-A brief description of your project. For example:
+> This is an e-commerce project built with React for the frontend and Node.js for the backend. The project supports features such as product management, shopping cart, checkout, create order and user authentication.
 
-> This is an e-commerce project built with React for the frontend and Node.js for the backend. The project supports features such as product management, shopping cart, checkout, and user authentication.
+## Tech stacks
 
-## 🚀 Technologies Used
-
-- **Frontend:** ReactJS, Tailwind CSS, Ant Design
-- **Backend:** Node.js, Express, MongoDB
+- **Frontend:** ReactJS, TailwindCSS, Ant Design, Redux Toolkit, React Router, React Hook Form
+- **Backend:** NodeJS, ExpressJS, MongoDB
 - **Authentication:** JSON Web Tokens (JWT), 2FA, OTP
-- **State Management:** React Query, Redux Toolkit
 
-## 📂 Project Structure
-
-```bash
-/ecommerce-project
-├── client
-│   ├── src
-│   │   ├── components
-│   │   ├── pages
-│   │   ├── hooks
-│   │   ├── utils
-│   │   ├── assets
-│   │   ├── store
-│   │   ├── App.tsx
-│   │   ├── main.tsx
-│   ├── public
-│   ├── package.json
-├── server
-│   ├── src
-│   │   ├── controllers
-│   │   ├── models
-│   │   ├── routes
-│   │   ├── middlewares
-│   │   ├── config
-│   │   ├── server.js
-│   ├── package.json
-├── README.md
-```
-
-## 🌟 Key Features
+## Features
 
 - User Registration/Login
 - Product Management
@@ -49,65 +18,90 @@ A brief description of your project. For example:
 - Product Filtering & Search
 - Admin Order Management
 
-## 📸 Demo Images
+## Overview website
 
-> Add illustrative images of your project interface here.
-> ![Login](/client/public/home.png)
+> Home
+> ![Home](/uploads/home.png)
 
-## ⚡ Installation & Setup
+> Register
+> ![Register](/client/public/register.png)
 
-### 1️⃣ Clone the Repository
+> Login
+> ![Login](/client/public/login.png)
+
+> Collection
+> ![Product](/client/public/collection.png)
+
+> Product
+> ![Product](/client/public/home.png)
+
+> Product Detail
+> ![Product](/client/public/product_detail.png)
+
+> Cart
+> ![Cart](/client/public/cart.png)
+
+> Checkout
+> ![Checkout](/client/public/checkout.png)
+
+## Installation & Setup
+
+### 1: Clone the Repository
 
 ```bash
-git clone https://github.com/your-repo/ecommerce-project.git
-cd ecommerce-project
+git clone https://github.com/hatuan1423/ecommerce.git
 ```
 
-### 2️⃣ Install Dependencies
+### 2️: Install Dependencies & Run project
 
 #### Frontend
 
 ```bash
-cd frontend
-npm install
-```
-
-#### Backend
-
-```bash
-cd backend
-npm install
-```
-
-### 3️⃣ Run the Project
-
-#### Frontend
-
-```bash
+cd client
+npm i
 npm run dev
 ```
 
 #### Backend
 
 ```bash
-npm start
+cd server
+npm i
+npm run dev
 ```
 
-## 📌 Environment Setup
+## 3: Environment Setup
 
-Create a `.env` file in the backend directory with the following content:
+Create a `.env` file in the folder /src:
+
+#### Frontend
 
 ```env
-PORT=5000
-MONGO_URI=your-mongodb-uri
-JWT_SECRET=your-secret-key
+VITE_PROVINCE_API=api province
+VITE_BASE_URL=backend api url
+VITE_X_API_KEY=x-api-key
 ```
 
-## 📜 License
+#### Backend
 
-This project is released under the [MIT License](LICENSE).
+```env
+DEV_APP_PORT=server port
+DEV_DB_HOST=your db host
+DEV_DB_PORT=your db port
+DEV_DB_NAME=your db name
 
-## 📬 Contact
+EMAIL_NAME=your gmail
+EMAIL_APP_PASSWORD=your password app gmail
 
-- **Email:** your.email@example.com
-- **GitHub:** [your-username](https://github.com/your-username)
+CLOUDINARY_NAME=your cloudinary name
+CLOUDINARY_API_KEY=your cloudinary api key
+CLOUDINARY_API_SECRET=your cloudinary api secret
+
+NAME_SERVICE_2FA = your name service for twofactor authen
+
+```
+
+## Contact
+
+- **Email:** dhtuan198@gmail.com
+- **GitHub:** https://github.com/hatuan1423
