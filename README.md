@@ -1,60 +1,70 @@
-# E-commerce
+<h1 align="center">Baya E-commerce Clone Website</h1>
 
-## Introduction
+## Contents
 
-> This is an e-commerce project built with React for the frontend and Node.js for the backend. The project supports features such as product management, shopping cart, checkout, create order and user authentication.
+- [Brief description](#brief-description)
+- [Technologies](#technologies)
+- [Overview](#overview)
+- [Images](#images)
+- [Installation and setup](#installation-and-setup)
+- [Contact](#contact)
 
-## Tech stacks
+## Brief description
 
-- **Frontend:** ReactJS, TailwindCSS, Ant Design, Redux Toolkit, React Router, React Hook Form
-- **Backend:** NodeJS, ExpressJS, MongoDB
-- **Authentication:** JSON Web Tokens (JWT), 2FA, OTP
+- This is Baya Clone Website built with MERN stack.
+- Project link (GitHub): [ecommerce](https://github.com/hatuan1423/ecommerce)
+- Project's author: Duong Ha Tuan
 
-## Features
+## Technologies
 
-- User Registration/Login
+- Frontend: ReactJS, TailwindCSS, Ant Design, Redux Toolkit, React Router, React Hook Form
+- Backend: NodeJS, ExpressJS, MongoDB
+- Authentication: JSON Web Tokens (JWT), TwoFactor Authentication, email verification
+
+## Project details
+
+- User Registration with email verification/Login
 - Product Management
 - Shopping Cart & Checkout
 - Product Filtering & Search
-- Admin Order Management
+- Place an order
+- Admin management
+- Upload files with Cloudinary storage service
 
-## Overview website
+## Overview
 
-> Home
-> ![Home](/uploads/home.png)
+1. Home page
+   ![Home](https://res.cloudinary.com/duktr2ml5/image/upload/v1739466049/home_a8ccwn.png)
 
-> Register
-> ![Register](/client/public/register.png)
+2. Register page
+   ![Register](https://res.cloudinary.com/duktr2ml5/image/upload/v1739465939/register_cfjhzs.png)
 
-> Login
-> ![Login](/client/public/login.png)
+3. Login page
+   ![Login](https://res.cloudinary.com/duktr2ml5/image/upload/v1739465935/login_su5aal.png)
 
-> Collection
-> ![Product](/client/public/collection.png)
+4. Collection page
+   ![Product](https://res.cloudinary.com/duktr2ml5/image/upload/v1739465937/collection_mnhdx1.png)
 
-> Product
-> ![Product](/client/public/home.png)
+5. Product detail page
+   ![Product detail](https://res.cloudinary.com/duktr2ml5/image/upload/v1739465937/product_detail_tmmeif.png)
 
-> Product Detail
-> ![Product](/client/public/product_detail.png)
+6. Cart page
+   ![Cart](https://res.cloudinary.com/duktr2ml5/image/upload/v1739465935/cart_rxihce.png)
 
-> Cart
-> ![Cart](/client/public/cart.png)
+7. Checkout page
+   ![Checkout](https://res.cloudinary.com/duktr2ml5/image/upload/v1739465934/checkout_gque03.png)
 
-> Checkout
-> ![Checkout](/client/public/checkout.png)
+## Installation and setup
 
-## Installation & Setup
-
-### 1: Clone the Repository
+1. Clone the repository
 
 ```bash
 git clone https://github.com/hatuan1423/ecommerce.git
 ```
 
-### 2️: Install Dependencies & Run project
+2. Install dependencies & run project
 
-#### Frontend
+- Frontend
 
 ```bash
 cd client
@@ -62,7 +72,7 @@ npm i
 npm run dev
 ```
 
-#### Backend
+- Backend
 
 ```bash
 cd server
@@ -70,11 +80,11 @@ npm i
 npm run dev
 ```
 
-## 3: Environment Setup
+3. Environment setup
 
 Create a `.env` file in the folder /src:
 
-#### Frontend
+- Frontend
 
 ```env
 VITE_PROVINCE_API=api province
@@ -82,7 +92,7 @@ VITE_BASE_URL=backend api url
 VITE_X_API_KEY=x-api-key
 ```
 
-#### Backend
+- Backend
 
 ```env
 DEV_APP_PORT=server port
@@ -103,5 +113,5 @@ NAME_SERVICE_2FA = your name service for twofactor authen
 
 ## Contact
 
-- **Email:** dhtuan198@gmail.com
-- **GitHub:** https://github.com/hatuan1423
+- Email: dhtuan198@gmail.com
+- GitHub: https://github.com/hatuan1423
