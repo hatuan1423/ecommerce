@@ -1,5 +1,3 @@
-'use strict'
-
 const { findShopById, updateShop } = require("../models/repositories/shop.repository")
 const { NotFoundError, UnauthorizedError } = require("../core/error.response")
 const key2FA = require("../models/key2FA.model")

@@ -1,18 +1,9 @@
 <h1 align="center">Baya E-commerce Clone Website</h1>
 
-## Contents
-
-- [Brief description](#brief-description)
-- [Technologies](#technologies)
-- [Overview](#overview)
-- [Images](#images)
-- [Installation and setup](#installation-and-setup)
-- [Contact](#contact)
-
 ## Brief description
 
 - This is Baya Clone Website built with MERN stack.
-- Project link (GitHub): [ecommerce](https://github.com/hatuan1423/ecommerce)
+- Project link (GitHub): [E-commerce](https://github.com/hatuan1423/ecommerce)
 - Project's author: Duong Ha Tuan
 
 ## Technologies
@@ -34,24 +25,30 @@
 ## Overview
 
 1. Home page
+
    ![Home](https://res.cloudinary.com/duktr2ml5/image/upload/v1739466049/home_a8ccwn.png)
 
 2. Register page
+
    ![Register](https://res.cloudinary.com/duktr2ml5/image/upload/v1739465939/register_cfjhzs.png)
 
 3. Login page
+
    ![Login](https://res.cloudinary.com/duktr2ml5/image/upload/v1739465935/login_su5aal.png)
 
 4. Collection page
+
    ![Product](https://res.cloudinary.com/duktr2ml5/image/upload/v1739465937/collection_mnhdx1.png)
 
 5. Product detail page
    ![Product detail](https://res.cloudinary.com/duktr2ml5/image/upload/v1739465937/product_detail_tmmeif.png)
 
 6. Cart page
+
    ![Cart](https://res.cloudinary.com/duktr2ml5/image/upload/v1739465935/cart_rxihce.png)
 
 7. Checkout page
+
    ![Checkout](https://res.cloudinary.com/duktr2ml5/image/upload/v1739465934/checkout_gque03.png)
 
 ## Installation and setup

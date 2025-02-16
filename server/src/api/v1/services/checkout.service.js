@@ -1,5 +1,3 @@
-'use strict'
-
 const { findCart } = require("../models/repositories/cart.repository")
 const { convertToObjectIdMongoDB } = require("../utils/index")
 const { NotFoundError, BadRequestError } = require('../core/error.response')

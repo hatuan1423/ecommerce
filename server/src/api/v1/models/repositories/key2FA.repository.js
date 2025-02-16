@@ -1,5 +1,3 @@
-'use strict'
-
 const key2FA = require("../key2FA.model")
 
 const foundSecretKeyById = async (shop_id) => {

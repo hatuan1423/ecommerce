@@ -1,5 +1,3 @@
-'use strict'
-
 const cloudinary = require("../configs/cloudinary.config")
 
 class UploadService {

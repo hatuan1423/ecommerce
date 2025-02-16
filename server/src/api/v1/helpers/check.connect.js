@@ -1,5 +1,3 @@
-'use strict'
-
 const mongoose = require("mongoose")
 const _SECONDS = 5000
 const os = require("os")

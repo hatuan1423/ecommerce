@@ -1,5 +1,3 @@
-'use strict'
-
 const mongoose = require("mongoose")
 const { countConnect } = require("../helpers/check.connect")
 const { db: { host, name, port } } = require("../configs/mongodb.config")

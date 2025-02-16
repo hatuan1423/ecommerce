@@ -1,5 +1,3 @@
-'use strict'
-
 const { product } = require("../models/product.model")
 const { BadRequestError, NotFoundError } = require("../core/error.response")
 const {

@@ -1,5 +1,3 @@
-'use strict'
-
 const cart = require("../cart.model")
 
 const findCart = async (filter) => {

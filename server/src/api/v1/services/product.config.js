@@ -1,5 +1,3 @@
-'use strict'
-
 const { sofa, bathroom, bed, bedding, cabinet, chair, decorate, kitchen, office, table } = require("../models/product.model")
 
 const productConfigs = [

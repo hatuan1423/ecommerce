@@ -1,5 +1,3 @@
-'use strict'
-
 const { NotFoundError } = require("../core/error.response")
 const { findShopById } = require("../models/repositories/shop.repository")
 const shopSession = require("../models/shopSession.model")

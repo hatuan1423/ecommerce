@@ -1,5 +1,3 @@
-'use strict'
-
 const { model, Schema } = require("mongoose")
 const DOCUMENT_NAME = 'ShopSession'
 const COLLECTION_NAME = 'ShopSessions'

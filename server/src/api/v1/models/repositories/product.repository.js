@@ -1,5 +1,3 @@
-'use strict'
-
 const { getSelectData, unGetSelectData, convertToObjectIdMongoDB, getDataNestedObject } = require("../../utils")
 const { product } = require("../product.model")
 const { Types } = require('mongoose')

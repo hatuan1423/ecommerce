@@ -1,5 +1,3 @@
-'use strict'
-
 const express = require('express')
 const TwoFactorController = require('../../controllers/2fa.controller')
 const router = express.Router()

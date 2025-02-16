@@ -1,5 +1,3 @@
-'use strict'
-
 const discount = require("../discount.model")
 const { convertToObjectIdMongoDB, unGetSelectData, getSelectData } = require("../../utils/index")
 

@@ -1,5 +1,3 @@
-'use strict'
-
 const { findDiscount, findAllDiscountCodesUnSelect, updateDiscount } = require("../models/repositories/discount.repository")
 const { BadRequestError, NotFoundError } = require("../core/error.response")
 const { findAllProducts } = require("../models/repositories/product.repository")

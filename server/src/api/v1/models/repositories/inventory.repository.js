@@ -1,5 +1,3 @@
-'use strict'
-
 const inventorySchema = require("../inventory.model")
 const { Types } = require("mongoose")
 

@@ -1,5 +1,3 @@
-'use strict'
-
 const { BadRequestError, NotFoundError } = require("../core/error.response")
 const { findCart, createUserCart, updateUserCartQuantity } = require("../models/repositories/cart.repository")
 const cart = require("../models/cart.model")

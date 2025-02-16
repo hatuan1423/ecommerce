@@ -1,5 +1,3 @@
-'use strict'
-
 const shop = require("../shop.model")
 const { convertToObjectIdMongoDB, unGetSelectData } = require("../../utils/index")
 
