@@ -1,6 +1,7 @@
 const cloudinary = require("../configs/cloudinary.config")
 const { s3, PutObjectCommand, GetObjectCommand, DeleteObjectCommand } = require("../configs/s3.config")
-const { getSignedUrl } = require("@aws-sdk/s3-request-presigner")
+// const { getSignedUrl } = require("@aws-sdk/s3-request-presigner")
+const { getSignedUrl } = require("@aws-sdk/cloudfront-signer")
 const { randomImageName } = require("../utils")
 
 class UploadService {
@@ -17,12 +18,18 @@ class UploadService {
                 ContentType: 'image/jpeg'
             })
             const result = await s3.send(command)
-            const singleUrl = new GetObjectCommand({
-                Bucket: process.env.AWS_BUCKET_NAME,
-                Key: imageName,
+            // const singleUrl = new GetObjectCommand({
+            //     Bucket: process.env.AWS_BUCKET_NAME,
+            //     Key: imageName,
+            // })
+            // const url = await getSignedUrl(s3, singleUrl, { expiresIn: 3600 });
+            const url = getSignedUrl({
+                keyPairId: process.env.AWS_CLOUDFRONT_PUBLIC_KEY,
+                privateKey: process.env.AWS_BUCKET_PRIVATE_KEY_ID,
+                dateLessThan: new Date(Date.now() + 1000 * 60), //60s
+                url: `${process.env.AWS_CLOUDFRONT_IMAGE_NAME}/${imageName}`,
             })
-            const url = await getSignedUrl(s3, singleUrl, { expiresIn: 3600 });
-            return url
+            return { url, result }
         } catch (error) {
             console.error(error)
         }
