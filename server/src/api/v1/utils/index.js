@@ -1,5 +1,8 @@
 const _ = require('lodash')
 const { Types } = require('mongoose')
+const crypto = require('crypto')
+
+const randomImageName = () => crypto.randomBytes(16).toString("hex")
 
 const convertToObjectIdMongoDB = id => new Types.ObjectId(id)
 
@@ -50,6 +53,7 @@ const replacePlaceholder = (template, params) => {
 module.exports = {
     getInfoData,
     getSelectData,
+    randomImageName,
     unGetSelectData,
     replacePlaceholder,
     removeUndefinedObject,

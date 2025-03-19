@@ -1,6 +1,7 @@
 const cloudinary = require("../configs/cloudinary.config")
-const { s3, PutObjectCommand } = require("../configs/s3.config")
-const crypto = require('crypto')
+const { s3, PutObjectCommand, GetObjectCommand, DeleteObjectCommand } = require("../configs/s3.config")
+const { getSignedUrl } = require("@aws-sdk/s3-request-presigner")
+const { randomImageName } = require("../utils")
 
 class UploadService {
 
@@ -8,16 +9,20 @@ class UploadService {
         file
     }) {
         try {
-            const randomImageName = () => crypto.randomBytes(16).toString("hex")
+            const imageName = randomImageName()
             const command = new PutObjectCommand({
                 Bucket: process.env.AWS_BUCKET_NAME,
-                Key: randomImageName(), //file.originalname || 'unknown',
+                Key: imageName, //file.originalname || 'unknown',
                 Body: file.buffer,
                 ContentType: 'image/jpeg'
             })
-
             const result = await s3.send(command)
-            return result
+            const singleUrl = new GetObjectCommand({
+                Bucket: process.env.AWS_BUCKET_NAME,
+                Key: imageName,
+            })
+            const url = await getSignedUrl(s3, singleUrl, { expiresIn: 3600 });
+            return url
         } catch (error) {
             console.error(error)
         }
