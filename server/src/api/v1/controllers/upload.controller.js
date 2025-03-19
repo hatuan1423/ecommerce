@@ -30,6 +30,17 @@ class UploadController {
             })
         }).send(res)
     }
+
+    uploadImageFromLocalS3 = async (req, res, next) => {
+        const { file } = req
+        if (!file) throw new BadRequestError("Files missing error!")
+        new SuccessResponse({
+            message: "Upload files success!",
+            metadata: await UploadService.uploadImageFromLocalS3({
+                file
+            })
+        }).send(res)
+    }
 }
 
 module.exports = new UploadController

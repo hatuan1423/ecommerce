@@ -23,6 +23,12 @@ class AccessController {
             metadata: data
         }).send(res)
     }
+    loginGoogle = async (req, res, next) => {
+        new SuccessResponse({
+            message: "Login success!",
+            metadata: AccessService.loginGoogle({ token: req.body.token })
+        }).send(res)
+    }
     logout = async (req, res, next) => {
         res.clearCookie('refreshToken');
         new SuccessResponse({

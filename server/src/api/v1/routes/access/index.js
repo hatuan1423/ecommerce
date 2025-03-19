@@ -7,6 +7,7 @@ const accessValidator = require('../../validators/access.validator')
 
 router.post('/shop/signup', accessValidator.validateSignup, asyncHandler(accessController.signUp))
 router.post('/shop/login', accessValidator.validateLogin, asyncHandler(accessController.login))
+router.post('/shop/login/google', asyncHandler(accessController.loginGoogle))
 
 router.use(authentication)
 router.post('/shop/logout', asyncHandler(accessController.logout))

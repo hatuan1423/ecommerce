@@ -8,6 +8,8 @@ const shopSession = require("../models/shopSession.model")
 const { BadRequestError, UnauthorizedError, ForbiddenError } = require("../core/error.response")
 const keyTokenModel = require("../models/keyToken.model")
 const { findByEmail } = require("../models/repositories/shop.repository")
+const { OAuth2Client } = require("google-auth-library");
+const client = new OAuth2Client(process.env.GOOGLE_CLIENT_ID);
 
 class AccessService {
     static signUp = async ({ firstName, lastName, dateOfBirth, gender, email, password }) => {
@@ -97,6 +99,58 @@ class AccessService {
             shop: resShop,
             tokens
         }
+    }
+
+    static loginGoogle = async ({ token, refreshToken = null, device_id }) => {
+        console.log("da vao day")
+        // const ticket = await client.verifyIdToken({
+        //     idToken: token,
+        //     audience: process.env.GOOGLE_CLIENT_ID,
+        // });
+        // const payload = ticket.getPayload();
+
+        return 1
+
+        // const foundShop = await findByEmail({ email })
+        // if (!foundShop) {
+        //     throw new BadRequestError("Shop not registered!")
+        // }
+        // const { privateKey, publicKey } = createKeyPair()
+        // const tokens = await createTokenPair(
+        //     {
+        //         userId: foundShop._id,
+        //         email
+        //     },
+        //     publicKey,
+        //     privateKey
+        // )
+        // await KeyTokenService.createKeyToken({
+        //     userId: foundShop._id,
+        //     refreshToken: tokens.refreshToken,
+        //     privateKey,
+        //     publicKey
+        // })
+
+        // let resShop = getInfoData({
+        //     fields: ['_id', 'email'],
+        //     object: foundShop
+        // })
+        // let currentShopSession = await shopSession.findOne({ shop_id: foundShop._id, device_id })
+        // if (!currentShopSession) {
+        //     currentShopSession = await shopSession.create({
+        //         shop_id: foundShop._id,
+        //         device_id,
+        //         is_2fa_required: false,
+        //         last_login: new Date().valueOf()
+        //     })
+        // }
+        // resShop['is_2fa_required'] = currentShopSession.is_2fa_required
+        // resShop['last_login'] = currentShopSession.last_login
+
+        // return {
+        //     shop: resShop,
+        //     tokens
+        // }
     }
 
     static logout = async ({ keyStore, shop_id, device_id }) => {
