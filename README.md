@@ -106,6 +106,15 @@ CLOUDINARY_API_SECRET=your cloudinary api secret
 
 NAME_SERVICE_2FA = your name service for twofactor authen
 
+GOOGLE_CLIENT_ID = your google client id
+
+AWS_BUCKET_NAME = 
+AWS_BUCKET_REGION =
+AWS_BUCKET_ACCESS_KEY =
+AWS_BUCKET_SECRET_KEY =
+AWS_CLOUDFRONT_IMAGE_NAME =
+AWS_CLOUDFRONT_PUBLIC_KEY =
+AWS_BUCKET_PRIVATE_KEY_ID =
 ```
 
 ## Contact
